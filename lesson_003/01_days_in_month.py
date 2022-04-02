@@ -16,7 +16,7 @@ month = int(user_input)
 if month == 1:
     print('Вы ввели', month, '31 день')
 elif month == 3:
-    print('Вы ввели', month, '30 дней')
+    print('Вы ввели', month, '31 дней')
 elif month == 2:
     print('Вы ввели', month, '28 дней')
 elif month == 4:

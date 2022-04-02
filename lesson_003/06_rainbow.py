@@ -24,14 +24,13 @@ sd.pause()
 # Усложненное задание, делать по желанию.
 # Нарисовать радугу дугами от окружности (cсм sd.circle) за нижним краем экрана,
 # поэкспериментировать с параметрами, что бы было красиво
-# TODO здесь ваш код
 
-point_rw = sd.get_point(600,0)
+point_rw = sd.get_point(600, 0)
 radius_rw = 300
 
-for _ in range (7):
+for _ in range(7):
     radius_rw += 5
-    sd.circle (center_position=point_rw, radius=radius_rw, color=rainbow_colors [_], width=4)
+    sd.circle(center_position=point_rw, radius=radius_rw, color=rainbow_colors[_], width=4)
 
 
 sd.pause()

@@ -19,6 +19,7 @@ def smile(x, y, color):
     sds.ellipse(sds.get_point(x - 20, y + 20), sds.get_point (x - 15, y + 25), color, 2)
     sds.ellipse(sds.get_point(x + 20, y + 20), sds.get_point(x + 15, y + 25), color, 2)
 
+
 for i in range(10):
     point = sds.random_point()
     x = point.x

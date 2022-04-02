@@ -20,7 +20,6 @@ paper_x, paper_y = 8, 9
 # paper_x, paper_y = 9, 11
 # (просто раскоментировать нужную строку и проверить свой код)
 
-# TODO здесь ваш код
 if envelop_x >= paper_x and envelop_y >= paper_y:
     print ('ДА')
 else:
@@ -52,7 +51,6 @@ else:
 # brick_x, brick_y, brick_z = 3, 11, 6
 # (просто раскоментировать нужную строку и проверить свой код)
 
-# TODO здесь ваш код
 hole_x, hole_y = 8, 9
 brick_x, brick_y, brick_z = 11, 10, 2
 if hole_x >= brick_x and hole_y >= brick_y and  hole_x >= brick_z <= hole_y:

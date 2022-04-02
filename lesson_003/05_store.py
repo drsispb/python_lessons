@@ -46,7 +46,6 @@ store = {
 #         подсчет стоимости товара
 #     вывод на консоль количества и стоимости товара на складе
 
-# TODO здесь ваш код
 goods = {
     'Лампа': '12345',
     'Стол': '23456',
@@ -74,40 +73,16 @@ store = {
         {'quantity': 43, 'price': 97},
     ],
 }
+total_quantity = 0
+total_price = 0
 
-for x in goods:
-    print (x, goods[x])
-
-
-total_quantity_c = 0
-total_price_c = 0
-store_chair = store ['45678']
-for chair in store_chair:
-    total_quantity_c += chair['quantity']
-    total_price_c += chair['price']
-print('Стул -',  total_quantity_c, 'шт, стоимость', total_price_c, 'руб.')
-
-total_quantity_t = 0
-total_price_t = 0
-store_table = store ['23456']
-for table in store_table:
-    total_quantity_t += table ['quantity']
-    total_price_t += table ['price']
-print('Стол -',  total_quantity_t, 'шт, стоимость', total_price_t, 'руб.')
-
-
-total_quantity_l = 0
-total_price_l = 0
-store_lamp = store ['12345']
-for lamp in store_lamp:
-    total_quantity_l += lamp ['quantity']
-    total_price_l += lamp ['price']
-print('Лампа -',  total_quantity_l, 'шт, стоимость', total_price_l, 'руб.')
-
-total_quantity_s = 0
-total_price_s = 0
-store_sofa = store['34567']
-for sofa in store_sofa:
-    total_quantity_s += sofa ['quantity']
-    total_price_s += sofa ['price']
-print('Диван -',  total_quantity_s, 'шт, стоимость', total_price_s, 'руб.')
+for good in goods:
+    print(good, goods[good])
+    product_sku = goods[good]
+    shop_info_list = store[product_sku]
+    for product in shop_info_list:
+        total_quantity += product['quantity']
+        total_price += product['price']
+    print(good, '-',  total_quantity, 'шт, стоимость', total_price, 'руб.')
+    total_quantity = 0
+    total_price = 0

@@ -18,4 +18,5 @@ while i < 10:
     summa_expenses += expenses
 parents = summa_expenses - (educational_grant * 10)
 
-print ('Студенту надо попросить', round (parents, 2), 'рублей')
+print('Студенту надо попросить', round(parents, 2), 'рублей')
+
