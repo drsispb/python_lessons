@@ -77,43 +77,40 @@
 Напишите программу, которая получала бы на входе шестизначный номер билета 
 и выводила, счастливый это билет или нет. К примеру, билеты 666 666 и 252 135 — счастливые, а 123 456 — нет.'''
 
-tiket = int(input('Введите номер билета: '))
-tiket_right = tiket % 1000
-tiket_left = tiket // 1000
-tiket_left_1 = tiket_left // 100
-tiket_left_2 = tiket_left // 10 % 10
-tiket_left_3 = tiket_left % 10
-tiket_right_1 = tiket_right // 100
-tiket_right_2 = tiket_right // 10 % 10
-tiket_right_3 = tiket_right % 10
-print(tiket_left, tiket_right)
-count_l = 0
-count_r = 0
-summ_left = 0
-summ_right = 0
-while count_l != 3:
-    summ_left += tiket_left_1
-    count_l += 1
-    if count_l == 1:
-        tiket_left_1 = tiket_left_2
-    else:
-        tiket_left_1 = tiket_left_3
-while count_r != 3:
-    summ_right += tiket_right_1
-    count_r += 1
-    if count_r != 2:
-       tiket_rigth_1 = tiket_right_2
-    else:
-       tiket_right_1 = tiket_right_3
-print(summ_left)
-print(summ_right)
-if summ_left == summ_right:
-    print('Билет счатсливый')
-else:
-    print('Билет не счастливый')
-# while count != 3:
-
-# while count != 3:
+# tiket = int(input('Введите номер билета: '))
+# tiket_right = tiket % 1000
+# tiket_left = tiket // 1000
+# tiket_left_1 = tiket_left // 100
+# tiket_left_2 = tiket_left // 10 % 10
+# tiket_left_3 = tiket_left % 10
+# tiket_right_1 = tiket_right // 100
+# tiket_right_2 = tiket_right // 10 % 10
+# tiket_right_3 = tiket_right % 10
+# print(tiket_left, tiket_right)
+# count_l = 0
+# count_r = 0
+# summ_left = 0
+# summ_right = 0
+# while count_l != 3:
+#     summ_left += tiket_left_1
+#     count_l += 1
+#     if count_l == 1:
+#         tiket_left_1 = tiket_left_2
+#     else:
+#         tiket_left_1 = tiket_left_3
+# while count_r != 3:
+#     summ_right += tiket_right_1
+#     count_r += 1
+#     if count_r != 2:
+#        tiket_rigth_1 = tiket_right_2
+#     else:
+#        tiket_right_1 = tiket_right_3
+# print(summ_left)
+# print(summ_right)
+# if summ_left == summ_right:
+#     print('Билет счатсливый')
+# else:
+#     print('Билет не счастливый')
 
 
 ''' Задача 6. Поставьте оценку!
@@ -134,9 +131,18 @@ else:
 Кол-во положительных чисел: 1
 Кол-во отрицательных чисел: 2'''
 
-
-
-
+# count_plus = 0
+# count_minus = 0
+# while True:
+#     grade = int(input('Введите пожалуйста оценку от -100 до 100: '))
+#     if grade > 0:
+#         count_plus += 1
+#     elif grade < 0:
+#         count_minus += 1
+#     else:
+#         break
+# print('Кол-во положительных чисел: ', count_plus)
+# print('Кол-во отрицательных чисел: ', count_minus)
 
 '''Задача 7. Обычный день на работе
 
@@ -150,3 +156,90 @@ else:
 
 Напишите программу, в которой считается, сколько задач выполнил Максим за день 
 (8 часов). Если он хоть раз взял трубку, то в конце дополнительно выводите сообщение: «Нужно зайти в магазин».'''
+
+# count_hour = 0
+# count_job = 0
+# count_call = 0
+# print('Начался 8-часовой рабочий день')
+# while count_hour != 8:
+#     job = int(input('Сколько задач решит Максим?: '))
+#     call = int(input('Звонит жена. Взять трубку? (1 — да, 0 — нет): '))
+#     if job > 0:
+#         count_job += job
+#     if call == 1:
+#         count_call += 1
+#     count_hour += 1
+# print('Кол-во выполненных задач: ', count_job)
+# if count_call > 0:
+#     print('Нужно зайти в магазин')
+
+'''Задача 8. Вклады
+
+Что нужно сделать
+
+Вклад в банке составляет X рублей. Ежегодно он увеличивается на P 
+процентов, после чего дробная часть копеек отбрасывается. Определите, 
+через сколько лет вклад составит не менее Y рублей. 
+
+Напишите программу, которая по данным числам X, Y, P определяет, сколько 
+лет пройдёт, прежде чем сумма достигнет значения Y.'''
+
+
+# depozit = int(input('Введите сумму вклада: '))
+# percent = int(input('Введите процент начислений: '))
+# depozit_total = int(input('Введите желаемую сумму: '))
+# year = 0
+# percent = percent / 100 + 1
+# while True:
+#     depozit = depozit * percent
+#     if depozit < depozit_total:
+#         year += 1
+#     elif depozit > depozit_total:
+#         year += 1
+#         break
+# print('для достижения необходимой суммы пройдет: ', year)
+# print('Итоговая сумма за период', int(depozit))
+
+'''Задача 9. Игра «Угадай число»
+
+Что нужно сделать
+
+В одном из домашних заданий мы делали задачу, где папа-программист написал 
+для сына программу, которая просит его угадать число. Недостаток программы 
+был в том, что бедному сыну приходилось её каждый раз перезапускать, чтобы 
+угадывать число. Теперь, когда мы знаем гораздо больше, пришло время исправить 
+этот недостаток и заодно немного улучшить саму игру.
+
+Напишите программу-игру, которая запрашивает у пользователя число до тех пор, 
+пока он его не отгадает. Выводите сообщения в соответствии с примером.'''
+
+# secret_number = int(input('Загадайте число: '))
+# count = 0
+# while True:
+#     number = int(input('Угадайте число: '))
+#     if number < secret_number:
+#         print('Число меньше, чем нужно. Попробуйте ещё раз!')
+#     elif number > secret_number:
+#         print('Число больше, чем нужно. Попробуйте ещё раз!')
+#     else:
+#         break
+#     count += 1
+# print('Вы угадали! Число попыток: ', count)
+
+
+'''Задача 10. Игра «Компьютер угадывает число»
+
+
+Что нужно сделать
+
+Поменяйте мальчика и компьютер из прошлой задачи местами. 
+Теперь мальчик загадывает число между 1 и 100 (включительно). 
+Компьютер может спросить у мальчика: «Твоё число равно, меньше или 
+больше, чем число N?», где N — число, которое хочет проверить компьютер. 
+Мальчик отвечает одним из трёх чисел: 1 — равно, 2 — больше, 3 — меньше.
+
+Напишите программу, которая с помощью цепочки таких вопросов и ответов мальчика угадывает число.
+
+Дополнительно: сделайте так, чтобы можно было гарантированно угадать число за семь попыток.'''
+
+
