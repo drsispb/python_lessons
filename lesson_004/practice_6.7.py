@@ -242,4 +242,51 @@
 
 Дополнительно: сделайте так, чтобы можно было гарантированно угадать число за семь попыток.'''
 
-
+# from random import randint
+#
+# ask_number = 0
+#
+# while ask_number != 1:
+#     secret_number = int(input('Загадайте число от 1 до 100: '))
+#     if 0 < secret_number <= 100:
+#         y = randint(0, 100)
+#         print('я думаю ты загадал:', y)
+#         while True:
+#             ask_number = int(input('Твоё число равно - 1, меньше - 2, больше - 3: '))
+#             if ask_number == 1:
+#                 print('Я угадал, приходите еще')
+#                 break
+#             elif ask_number == 2:
+#                 y = int(y / 2)
+#                 print(y, 'это ваше число?')
+#             elif ask_number == 3:
+#                 y = int(y * 2)
+#                 print(y, 'это ваше число?')
+#             else:
+#                 print('некорректный ввод ответа')
+#     else:
+#         print('Повторите ввод от 0 до 100')
+number = int(input('Загадай число: '))
+N = 50
+low_limit = 0
+high_limit = 100
+answer = 0
+answer_count = 1
+while True:
+    print('n = ', int(N))
+    answer = int(input('Твое число равно, больше или меньше, чем число n? '))
+    if answer == 2:
+        low_limit = N
+        N *= 1.5
+        if high_limit < N:
+            N = (low_limit + high_limit) // 2
+    elif answer == 3:
+        high_limit = N
+        N *= 0.5
+        if low_limit > N:
+            N = (low_limit + high_limit) // 2
+    else:
+        print('Ты угадал')
+        break
+    answer_count += 1
+print('Попыток ', answer_count)
