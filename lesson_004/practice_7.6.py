@@ -218,4 +218,13 @@ n! = 1 * 2 * 3 * 4 * 5 * … * n'''
 
 Затем введите N - 1 номера оставшихся карточек. Они могут быть введены в любом порядке.'''
 
-
+# total_card = int(input('Введите общее количество карт: '))
+# count = 0
+# sum_card = 0
+# for un_card in range(1, total_card + 1):
+#     sum_card += un_card
+# while count != total_card - 1:
+#     card = int(input('Введите известные карты: '))
+#     sum_card -= card
+#     count += 1
+# print(sum_card)
