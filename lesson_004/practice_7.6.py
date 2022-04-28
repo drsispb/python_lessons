@@ -227,4 +227,4 @@ n! = 1 * 2 * 3 * 4 * 5 * … * n'''
 #     card = int(input('Введите известные карты: '))
 #     sum_card -= card
 #     count += 1
-# print(sum_card)
+# print('Номер потерянной карты: ', sum_card)
