@@ -352,12 +352,12 @@ input содержит корректное приглашение для вво
 
 '''
 
-cipher = input('Введите зашифрованное сообщение: ')
-firstpath = ''
-secondpath = ''
-for simbol in range(0,len(cipher)):
-    if simbol % 2 == 0:
-        firstpath += cipher[simbol]
-    else:
-        secondpath += cipher[-simbol]
-print('Расшифрованное сообщение:', firstpath+secondpath)
+# cipher = input('Введите зашифрованное сообщение: ')
+# firstpath = ''
+# secondpath = ''
+# for simbol in range(0,len(cipher)):
+#     if simbol % 2 == 0:
+#         firstpath += cipher[simbol]
+#     else:
+#         secondpath += cipher[-simbol]
+# print('Расшифрованное сообщение:', firstpath+secondpath)
