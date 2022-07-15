@@ -92,7 +92,7 @@ x = -6   exp(x) = 0.0024787521766663585
 # while percent < 100:
 #     speed_count += speed
 #     percent = speed_count / size * 100
-#     percent = round(percent)
+#     percent = round(percent)0
 #     time += 1
 #     if speed_count < size:
 #         print('Прошло', time, 'сек. Скачано', round(speed_count), 'из', round(size), 'Мб (' + str(percent) + '%)')
