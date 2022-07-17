@@ -1,3 +1,4 @@
+import math
 ''' Задача 1. Календарь
 
 
@@ -280,14 +281,25 @@ input содержит корректное приглашение для вво
 
 # long = int(input('Введите необходимую длинну колонтитула: '))
 # point = int(input('Введите необходимое количество восклицательных знаков: '))
-#
+# exclamation_point = '!'
+# wave = '~'
 # if long < point:
 #     while long < point:
 #         print('Количество восклицательных знаков, не может быть выше длинны колонтитула, повторите ввод!')
 #         long = int(input('Введите необходимую длинну колонтитула: '))
 #         point = int(input('Введите необходимое количество восклицательных знаков: '))
 # title = long - point
-# title = title / 2
+# title_left = title_right = title / 2
+# title_right = int(title_right)
+# title_left  = math.ceil(title_left)
+# for simbol in range(title_left):
+#     print(wave, end = '')
+# for simbol in range(point):
+#     print(exclamation_point, end ='')
+# for simbol in range(title_right):
+#     print(wave, end='')
+
+
 # print('~' * int(title) + '!' * point + '~' * int(title))
 
 '''Что оценивается
