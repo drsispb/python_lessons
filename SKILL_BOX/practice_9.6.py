@@ -15,18 +15,22 @@
 
 Номер дня недели: 2
 '''
-
-# days = input('Введите день недели: ')
+# week = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']
+# control = True
 # numbers_day = 1
-# for day in ('понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'):
-#     if day != days:
-#         numbers_day += 1
+# control_count = 0
+# while control:
+#     days = input('Введите день недели: ')
+#     if days.lower() in week:
+#         for day in week:
+#             if day != days.lower():
+#                 numbers_day += 1
+#             else:
+#                 print('Номер дня недели: ', numbers_day)
+#                 control = False
+#                 break
 #     else:
-#         break
-# if numbers_day > 7:
-#     print('Неверно введен день недели')
-# else:
-#     print(numbers_day)
+#         print('Неверно введен день недели!')
 
 '''Задача 2. Я стал новым пиратом!
 
