@@ -20,3 +20,15 @@
 input содержит корректное приглашение для ввода;
 вывод содержит описание результата (выведенные числа сопровождаются текстовым описанием).'''
 
+def unverse():
+    for x in (list(numbers)[::-1]):
+        if x == '0':
+            continue
+        else:
+            print(x, end= '')
+
+
+numbers = 1
+while numbers != '0':
+    numbers = input('\nВведите число: ')
+    unverse()
