@@ -334,5 +334,5 @@ input содержит корректное приглашение для вво
 #
 # x1 = abs(firth - second)
 # x2 = abs(firth + second)
-# x3 = x1 - x2
+# x3 = (x2 + abs(x1)) / 2
 # print('Наибольшее число: ', abs(x3))
