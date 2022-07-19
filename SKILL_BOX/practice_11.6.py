@@ -231,23 +231,31 @@ C   F
 input содержит корректное приглашение для ввода; 
 вывод содержит описание результата (выведенные числа сопровождаются текстовым описанием);'''
 
-control = True
-while control:
-    x_horse = float(input('Введите местоположение коня, по горизонтали: '))
-    y_horse = float(input('Введите местоположение коня, по вертикали: '))
-    x_step = float(input('Введите местоположение точки на доске, по вертикали: '))
-    y_step = float(input('Введите местоположение точки на доске, по горизонтали: '))
-    if 0 <= x_horse <= 1 and 0 <= x_step <= 1 and 0 <= y_step <= 1 and 0 <= y_horse <= 1:
-        place_x_h = int(x_horse * 10)
-        place_y_h = int(y_horse * 10)
-        place_x_s = int(x_step * 10)
-        place_y_s = int(y_step * 10)
-        print('Конь в клетке (' + str(place_x_h) + ',' + str(place_y_h) + '). ',
-'Точка в клетке (' + str(place_x_s) + ',' + str(place_y_s) + ').')
+# control = True
+# while control:
+#     x_horse = float(input('Введите местоположение коня, по горизонтали: '))
+#     y_horse = float(input('Введите местоположение коня, по вертикали: '))
+#     x_step = float(input('Введите местоположение точки на доске, по горизонтали: '))
+#     y_step = float(input('Введите местоположение точки на доске, по вертикали: '))
+#     if 0 <= x_horse <= 1 and 0 <= x_step <= 1 and 0 <= y_step <= 1 and 0 <= y_horse <= 1:
+#         place_x_h = int(x_horse * 10)
+#         place_y_h = int(y_horse * 10)
+#         place_x_s = int(x_step * 10)
+#         place_y_s = int(y_step * 10)
+#         print('Конь в клетке (' + str(place_x_h) + ',' + str(place_y_h) + '). ',
+# 'Точка в клетке (' + str(place_x_s) + ',' + str(place_y_s) + ').')
+#         control = False
+#     else:
+#         print('Введены некорректные кординаты, повторите ввод!')
+#
+# if (abs(place_x_h - place_x_s) == 2 and abs(place_y_h - place_y_s) == 1) \
+#         or (abs(place_x_h - place_x_s) == 1 and abs(place_y_h - place_y_s) == 2):
+#     print('Да, конь может ходить в эту точку.')
+# else:
+#     print('Нет, конь не может ходить в эту точку.')
 
 
-    else:
-        print('Введены некорректные кординаты, повторите ввод!')
+
 
 '''Задача 8. Часы
 
