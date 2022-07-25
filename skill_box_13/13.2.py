@@ -27,5 +27,5 @@ third = int(input('Введите третье число: '))
 max_num = max_number(first, second)
 max_num = max_number(max_num, third)
 
-print(max_num)
+print('Наибольшее число: ', max_num)
 
