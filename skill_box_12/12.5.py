@@ -34,3 +34,5 @@ def count_letters():
     print('Количество букв ' + str(letter) + ':', count_l)
 
 count_letters()
+
+'''  123 '''
