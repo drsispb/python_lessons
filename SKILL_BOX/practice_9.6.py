@@ -322,28 +322,28 @@ input содержит корректное приглашение для вво
 
 Напишите программу для подсчета получаемого молока в коровнике, с учетом следующего взаимодействия 
 пользователя с программой: пользователь вводит строку из 10 символов a и b. Необходимо определить, 
-сколько в итоге будет произведено молока за день.'''
+сколько в итоге будет произведено молока за день.
+github_test'''
 
+# check = True
+# while check:
+#     status = input('Введите информацию о статусе стоил: (a-свободно, b-занято): ')
+#     control = len(status)
+#     if control == 10:
+#         count = 0
+#         total_count = 0
+#         for cow in status:
+#             count += 2
+#             if cow == 'a':
+#                 total_count += count
+#             elif cow == 'b':
+#                 continue
+#         print(total_count)
+#         check = False
+#     else:
+#         print('Введено не корректное количество стоил, повторите операцию')
 
-check = True
-while check:
-    status = input('Введите информацию о статусе стоил: (a-свободно, b-занято): ')
-    control = len(status)
-    if control == 10:
-        count = 0
-        total_count = 0
-        for cow in status:
-            count += 2
-            if cow == 'a':
-                total_count += count
-            elif cow == 'b':
-                continue
-        print(total_count)
-        check = False
-    else:
-        print('Введено не корректное количество стоил, повторите операцию')
-
-
+#......
 '''Что оценивается
 Задание считается успешно выполненным, если:
 
