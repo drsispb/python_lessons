@@ -20,3 +20,4 @@ def serach_min():
 firth = int(input('Введите первое число: '))
 second = int(input('Введите второе число: '))
 serach_min()
+

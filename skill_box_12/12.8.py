@@ -32,3 +32,5 @@ def search_max_del():
 firth = int(input('Введите первое число: '))
 second = int(input('Введите второе число: '))
 search_max_del()
+
+

@@ -27,3 +27,4 @@ def negative():
     print('«Отрицательное»')
 
 test()
+
