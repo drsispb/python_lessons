@@ -13,36 +13,41 @@
 input содержит корректное приглашение для ввода;
 вывод содержит описание результата (выведенные числа сопровождаются текстовым описанием).'''
 
-def summ():
+def summ(numbers):
     count = 0
-    for x in range (1, numbers + 1):
-        count += x
-    print('Я знаю, что сумма чисел от 1 до', numbers, 'равна', count)
+    for x in numbers:
+        count += int(x)
+    print('Я знаю, что сумма цифр числа - ', numbers, 'равна', count)
 
-def max_number():
-    if number_1 > number_2:
-        print('Наибольшее число: ', number_1)
-    elif number_1 < number_2:
-        print('Наибольшее число: ', number_2)
+def max_number(numbers):
+    count = 0
+    for x in numbers:
+        if count < int(x):
+            count = int(x)
+        else:
+            continue
+    print('Я знаю, что наибольшая цифра числа - ', numbers, 'равна', count)
 
-def min_number():
-    if number_1 < number_2:
-        print('Наименьшее число: ', number_1)
-    elif number_1 > number_2:
-        print('Наименьшее число: ', number_2)
+def min_number(numbers):
+    count = 9
+    for x in numbers:
+        if count > int(x):
+            count = int(x)
+        else:
+            continue
+    print('Я знаю, что наименьшая цифра числа - ', numbers, 'равна', count)
 
 while True:
-    choice = int(input('Введите один из вариантов: 1- сумма чисел, 2 - максимальное число, 3 - минимальное число: '))
-    if choice == 1:
-        numbers = int(input('Введите число: '))
-        summ()
-    elif choice == 2:
-        number_1 = int(input('Введите первое число: '))
-        number_2 = int(input('Введите второе число: '))
-        max_number()
-    elif choice == 3:
-        number_1 = int(input('Введите первое число: '))
-        number_2 = int(input('Введите второе число: '))
-        min_number()
+    numbers = input('Введите число: ')
+    if int(numbers) > 0:
+        choice = int(input('Введите один из вариантов: 1- сумма чисел, 2 - максимальное число, 3 - минимальное число: '))
+        if choice == 1:
+            summ(numbers)
+        elif choice == 2:
+            max_number(numbers)
+        elif choice == 3:
+            min_number(numbers)
+        else:
+            print('Ошибка ввода, повторите!')
     else:
-        print('Ошибка ввода, повторите!')
+        print('Введено неверное число, повторите ввод!')
