@@ -19,12 +19,9 @@ input содержит корректное приглашение для вво
 вывод содержит описание результата (выведенные числа сопровождаются текстовым описанием).
 '''
 
-def count_letters():
+def count_letters(frathe, num, letter):
     count_n = 0
     count_l = 0
-    frathe = input('Введите текст: ')
-    num = input('Какую цифру ищем? ')
-    letter = input('Какую букву ищем? ')
     for i in list(frathe):
         if i == num:
             count_n += 1
@@ -33,6 +30,10 @@ def count_letters():
     print('Количество цифр ' + str(num) + ':', count_n)
     print('Количество букв ' + str(letter) + ':', count_l)
 
-count_letters()
+frathe = input('Введите текст: ')
+num = input('Какую цифру ищем? ')
+letter = input('Какую букву ищем? ')
+
+count_letters(frathe, num, letter)
 
 '''  123 '''
