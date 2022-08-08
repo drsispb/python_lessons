@@ -39,15 +39,19 @@ def min_number(numbers):
 
 while True:
     numbers = input('Введите число: ')
-    if int(numbers) > 0:
-        choice = int(input('Введите один из вариантов: 1- сумма чисел, 2 - максимальное число, 3 - минимальное число: '))
-        if choice == 1:
-            summ(numbers)
-        elif choice == 2:
-            max_number(numbers)
-        elif choice == 3:
-            min_number(numbers)
+    s = numbers.isdigit()
+    if s == True:
+        if int(numbers) > 0:
+            choice = input('Введите один из вариантов: 1- сумма чисел, 2 - максимальное число, 3 - минимальное число: ')
+            if choice == '1':
+                summ(numbers)
+            elif choice == '2':
+                max_number(numbers)
+            elif choice == '3':
+                min_number(numbers)
+            else:
+                print('Ошибка ввода, повторите!')
         else:
-            print('Ошибка ввода, повторите!')
+            print('Введено неверное число, повторите ввод!')
     else:
         print('Введено неверное число, повторите ввод!')
