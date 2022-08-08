@@ -17,14 +17,17 @@ input содержит корректное приглашение для вво
 '''
 def summa_n(n):
     count = 0
-    if int(n) < 0 or n.isdigit() == False:
-        print('Ошибка ввода')
+    x = n.isdigit()
+    if x == True:
+        if int(n) < 0:
+            print('Ошибка ввода')
+        else:
+            for x in range (1, int(n) + 1):
+                count += x
+            print('Я знаю, что сумма чисел от 1 до', n, 'равна', count)
     else:
-        for x in range (1, int(n) + 1):
-            count += x
-        print('Я знаю, что сумма чисел от 1 до', n, 'равна', count)
-
-
-n = input('Введите целое положительное число: ')
-summa_n(n)
+        print('Ошибка ввода')
+while True:
+    n = input('Введите целое положительное число: ')
+    summa_n(n)
 
