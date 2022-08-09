@@ -9,26 +9,34 @@ input содержит корректное приглашение для вво
 вывод содержит описание результата (выведенные числа сопровождаются текстовым описанием).
 '''
 
-def search_max_del():
-    x = 0
-    if firth > second:
-        for i in range(1, firth + 1):
-            if firth % i == 0 and second % i == 0:
-                x = i
-            else:
-                continue
-        print(x)
-    else:
-        for i in range(1, second + 1):
-            if firth % i == 0 and second % i == 0:
-                x = i
-            else:
-                continue
-        print(x)
+# def search_max_del(firth, second):
+#     x = 0
+#     if firth > second:
+#         i = second
+#     else:
+#         i = firth
+#     for num in range(1, i + 1):
+#         if firth % num == 0 and second % num == 0:
+#             x = num
+#     print('Наибольший общий делитель:', x)
+#
+#
+# firth = int(input('Введите первое число: '))
+# second = int(input('Введите второе число: '))
+# search_max_del(firth, second)
 
+'''"типо правильный вариант'''
 
+def search_evklid(a, b):
+    while a != 0 and b != 0:
+        if a > b:
+           a = a % b
+        else:
+            b = b % a
+    print(a + b)
 
 
 firth = int(input('Введите первое число: '))
 second = int(input('Введите второе число: '))
-search_max_del()
+
+search_evklid(firth, second)

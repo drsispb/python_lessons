@@ -15,15 +15,19 @@ input содержит корректное приглашение для вво
 вывод содержит описание результата (выведенные числа сопровождаются текстовым описанием).
 
 '''
-def summa_n():
+def summa_n(n):
     count = 0
-    if n < 0:
-        print('Ошибка ввода')
+    x = n.isdigit()
+    if x == True:
+        if int(n) < 0:
+            print('Ошибка ввода')
+        else:
+            for x in range (1, int(n) + 1):
+                count += x
+            print('Я знаю, что сумма чисел от 1 до', n, 'равна', count)
     else:
-        for x in range (1, n + 1):
-            count += x
-        print('Я знаю, что сумма чисел от 1 до', n, 'равна', count)
+        print('Ошибка ввода')
+while True:
+    n = input('Введите целое положительное число: ')
+    summa_n(n)
 
-
-n = int(input('Введите целое положительное число: '))
-summa_n()
