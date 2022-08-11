@@ -8,8 +8,33 @@
 На вход подаётся строка — это экспоненциальная форма числа. Напишите программу, которая выводит отдельно мантиссу и
 отдельно порядок этого числа.'''
 
+def mantice(num):
+    manticce = ''
+    for i in num:
+        if i != 'e':
+            manticce += i
+        else:
+            print('Мантиса введенного числа:', manticce)
+            break
+
+def order (num):
+    order_un = ''
+    order = ''
+    for i in num[::-1]:
+        if i != 'e':
+            order_un += i
+        else:
+            # print('Порядок введенного числа:', order)
+            break
+    for i in order_un[::-1]:
+        order += i
+    print('Порядок введенного числа:', order)
 
 
-num = input('Введите экспоненциальную форму числа: ')
+num = str(input('Введите число в эспоненциальной форме: '))
 
-print(num)
+mantice(num)
+order(num)
+
+
+
