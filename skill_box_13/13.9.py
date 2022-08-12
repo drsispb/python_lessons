@@ -23,6 +23,7 @@ def credit(s,y,p):
         persent = s * p
         A = K * s
         total = A - persent
+        total = round(total, 2)
         print('\nПериод: ', count, '\nОстаток долга на начало периода:', s, '\nВыплачено процентов:', persent, '\nВыплачено тела кредита:', total)
         s = s - total
         y -= 1
