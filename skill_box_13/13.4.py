@@ -10,31 +10,24 @@
 
 def mantice(num):
     manticce = ''
+    order = ''
+    count = 0
     for i in num:
         if i != 'e':
+            count += 1
             manticce += i
         else:
             print('Мантиса введенного числа:', manticce)
             break
-
-def order (num):
-    order_un = ''
-    order = ''
-    for i in num[::-1]:
-        if i != 'e':
-            order_un += i
-        else:
-            # print('Порядок введенного числа:', order)
-            break
-    for i in order_un[::-1]:
-        order += i
+    for o in num[count + 1::]:
+        order += o
     print('Порядок введенного числа:', order)
 
 
 num = str(input('Введите число в эспоненциальной форме: '))
 
 mantice(num)
-order(num)
+
 
 
 

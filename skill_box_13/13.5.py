@@ -15,31 +15,23 @@
 в основной части программы был только ввод чисел, затем изменённые числа и вывод их суммы.'''
 
 
-def number_one(first_n):
+def number_one(first_n,second_n):
     x = len(str(first_n))
-    if x < 3:
-        print("В первом числе меньше трёх цифр.")
+    y = len(str(second_n))
+    if x < 3 or y < 4:
+        print("неверное количество цифр.")
     else:
          last_digit = first_n % 10
          first_digit = first_n // 10 ** (int(x) - 1)
          between_digits = first_n % 10 ** (int(x) - 1) // 10
          first_n = last_digit * 10 ** (int(x) - 1) + between_digits * 10 + first_digit
          print('Изменённое первое число:', first_n)
-         return first_n
-
-
-
-def number_two(second_n):
-    x = len(str(second_n))
-    if x < 4:
-        print("Во втором числе меньше четырёх цифр.")
-    else:
-        last_digit = second_n % 10
-        first_digit = second_n // 10 ** (int(x) - 1)
-        between_digits = second_n % 10 ** (int(x) - 1) // 10
-        second_n = last_digit * 10 ** (int(x) - 1) + between_digits * 10 + first_digit
-        print('Изменённое второе число:', second_n)
-        return second_n
+         second_last_digit = second_n % 10
+         second_first_digit = second_n // 10 ** (int(y) - 1)
+         second_between_digits = second_n % 10 ** (int(y) - 1) // 10
+         second_n = second_last_digit * 10 ** (int(y) - 1) + second_between_digits * 10 + second_first_digit
+         print('Изменённое второе число:', second_n)
+         return first_n, second_n
 
 
 def summ_total(one, two):
@@ -50,6 +42,5 @@ def summ_total(one, two):
 
 first_n = int(input("Введите первое число: "))
 second_n = int(input("\nВведите второе число: "))
-one = number_one(first_n)
-two = number_two(second_n)
+one, two = number_one(first_n,second_n)
 summ_total(one, two)
