@@ -18,17 +18,17 @@
 Введите максимально допустимый уровень опасности: 0.01
 Приблизительная глубина безопасной кладки: 0.732421875 м'''
 
-def max_danger(x):
-    return x ** 3 - 3 * x ** 2 - 12 * x + 10
-
 start = 0.0
 stop = 4.0
-D = float(input('Введите максимально допустимый уровень опасности: '))
+max_danger = float(input('Введите максимально допустимый уровень опасности: '))
+depth = start + (stop - start) / 2
+danger = depth ** 3 - 3 * depth ** 2 - 12 * depth + 10
 
-while stop - start >= D:
-    t = (start + stop) / 2
-    if max_danger(start) * max_danger(t) < 0:
-        stop = t
+while abs(danger) >= max_danger:
+    if danger > 0:
+        start = depth
     else:
-        start = t
-print('Приблизительная глубина безопасной кладки:', (start + stop) / 2, 'м')
+        stop = depth
+    depth = start + + (stop - start) / 2
+    danger = depth ** 3 - 3 * depth ** 2 - 12 * depth + 10
+print('Приблизительная глубина безопасной кладки:', depth, 'м')
