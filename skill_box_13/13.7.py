@@ -13,22 +13,26 @@
 приблизительное значение х, удовлетворяющее этому отклонению. Известно, что глубина точно больше нуля и меньше четырёх
 метров. Обеспечьте контроль ввода.
 
+def max_danger(x):
+    return x ** 3 - 3 * x ** 2 - 12 * x + 10
 
 Пример:
 Введите максимально допустимый уровень опасности: 0.01
 Приблизительная глубина безопасной кладки: 0.732421875 м'''
 
+def max_danger(x):
+    return x ** 3 - 3 * x ** 2 - 12 * x + 10
+
 start = 0.0
 stop = 4.0
-max_danger = float(input('Введите максимально допустимый уровень опасности: '))
-depth = start + (stop - start) / 2
-danger = depth ** 3 - 3 * depth ** 2 - 12 * depth + 10
+max_dangers = float(input('Введите максимально допустимый уровень опасности: '))
 
-while abs(danger) >= max_danger:
-    if danger > 0:
-        start = depth
-    else:
+while stop - start >= max_dangers:
+    depth = (start + stop) / 2
+    if max_danger(start) * max_danger(depth) < 0:
         stop = depth
-    depth = start + + (stop - start) / 2
-    danger = depth ** 3 - 3 * depth ** 2 - 12 * depth + 10
-print('Приблизительная глубина безопасной кладки:', depth, 'м')
+    else:
+        start = depth
+print('Приблизительная глубина безопасной кладки:', (start + stop) / 2, 'м')
+
+
