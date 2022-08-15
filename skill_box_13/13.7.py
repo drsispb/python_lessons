@@ -27,7 +27,7 @@ start = 0.0
 stop = 4.0
 max_dangers = float(input('Введите максимально допустимый уровень опасности: '))
 
-while stop - start >= max_dangers:
+while abs(stop - start) >= max_dangers:
     depth = (start + stop) / 2
     if max_danger(start) * max_danger(depth) < 0:
         stop = depth
