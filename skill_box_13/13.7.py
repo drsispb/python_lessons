@@ -21,8 +21,12 @@ def max_danger(x):
 Приблизительная глубина безопасной кладки: 0.732421875 м'''
 
 def max_danger(x):
-    return x ** 3 - 3 * x ** 2 - 12 * x + 10
-
+    return x ** a - b * x ** c - d * x + e
+a = 3
+b = 3
+c = 2
+d = 12
+e = 10
 start = 0.0
 stop = 4.0
 max_dangers = float(input('Введите максимально допустимый уровень опасности: '))
