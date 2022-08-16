@@ -9,22 +9,18 @@
 отдельно порядок этого числа.'''
 
 def mantice(num):
-    manticce = ''
-    order = ''
-    count = 0
+    res = ''
     for i in num:
         if i != 'e':
-            count += 1
-            manticce += i
-        else:
-            print('Мантиса введенного числа:', manticce)
-            break
-    for o in num[count + 1::]:
-        order += o
-    print('Порядок введенного числа:', order)
+            res += i
+        elif i == 'e':
+            manticce = res
+            res = ''
+    print('Мантиса введенного числа:', manticce)
+    print('Порядок введенного числа:', res)
 
 
-num = str(input('Введите число в эспоненциальной форме: '))
+num = input('Введите число в эспоненциальной форме: ')
 
 mantice(num)
 
