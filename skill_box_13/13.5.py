@@ -15,23 +15,12 @@
 в основной части программы был только ввод чисел, затем изменённые числа и вывод их суммы.'''
 
 
-def number_one(first_n,second_n):
-    x = len(str(first_n))
-    y = len(str(second_n))
-    if x < 3 or y < 4:
-        print("неверное количество цифр.")
-    else:
-         last_digit = first_n % 10
-         first_digit = first_n // 10 ** (int(x) - 1)
-         between_digits = first_n % 10 ** (int(x) - 1) // 10
-         first_n = last_digit * 10 ** (int(x) - 1) + between_digits * 10 + first_digit
-         print('Изменённое первое число:', first_n)
-         second_last_digit = second_n % 10
-         second_first_digit = second_n // 10 ** (int(y) - 1)
-         second_between_digits = second_n % 10 ** (int(y) - 1) // 10
-         second_n = second_last_digit * 10 ** (int(y) - 1) + second_between_digits * 10 + second_first_digit
-         print('Изменённое второе число:', second_n)
-         return first_n, second_n
+def number_one(number,x):
+     last_digit = number % 10
+     first_digit = number // 10 ** (int(x) - 1)
+     between_digits = number % 10 ** (int(x) - 1) // 10
+     number = last_digit * 10 ** (int(x) - 1) + between_digits * 10 + first_digit
+     return number
 
 
 def summ_total(one, two):
@@ -39,8 +28,19 @@ def summ_total(one, two):
     print('\nСумма чисел:', x)
 
 
-
-first_n = int(input("Введите первое число: "))
-second_n = int(input("\nВведите второе число: "))
-one, two = number_one(first_n,second_n)
-summ_total(one, two)
+while True:
+    digit = int(input('Введите длинну планируемого числа: '))
+    first_n = int(input("Введите первое число: "))
+    if len(str(first_n)) < digit:
+        print("неверное количество цифр.")
+    else:
+        one = number_one(first_n,digit)
+        print('Изменённое первое число:', one)
+    digit = int(input('Введите длинну планируемого числа: '))
+    second_n = int(input("Введите первое число: "))
+    if len(str(second_n)) < digit:
+        print("неверное количество цифр.")
+    else:
+        two = number_one(second_n,digit)
+        print('Изменённое первое число:', two)
+    summ_total(one, two)
