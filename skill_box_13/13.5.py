@@ -47,3 +47,4 @@ while True:
         print("неверное количество цифр.")
     if one != None and two != None:
         summ_total(one, two)
+
