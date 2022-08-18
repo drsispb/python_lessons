@@ -18,12 +18,10 @@ list = []
 N = int(input('Количество клеток: '))
 for _ in range(1,N + 1):
     list.append(_)
-count = 1
 bad_effectiv = []
 for i in list:
     effectiv = int(input('Введите эффективность '))
     if int(i) > effectiv:
         bad_effectiv.append(effectiv)
-    print('Эффективность', count, 'клетки:', effectiv)
-    count += 1
+    print('Эффективность', i, 'клетки:', effectiv)
 print('Неподходящие значения:', " ".join(map(str,bad_effectiv)))
