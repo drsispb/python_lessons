@@ -17,20 +17,15 @@
 
 N = int(input('Количество видеокарт: '))
 old_list = []
-count = 0
 
-while count != N:
-    count += 1
-    print('\n ', count, end='')
+for i in range(1, N + 1):
+    print('\n ', i, end='')
     card = input(' Видеокарта: ')
     old_list.append(card)
-check = 0
-for i in old_list:
-    if int(check) < int(i):
-        check = i
+old_list.sort()
 new_list = []
-for _ in old_list:
-    if _ != check:
-        new_list.append(_)
+for m in old_list:
+    if m != old_list[N - 1]:
+        new_list.append(m)
 print('\nСтарый список видеокарт:', " ".join(map(str,old_list)))
 print('Новый список видеокарт:', " ".join(map(str,new_list)))
