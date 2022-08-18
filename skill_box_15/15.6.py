@@ -11,11 +11,10 @@
 Количество уникальных букв: 2'''
 
 
-word = input('Введите слово: ')
-word_list = list(word)
+word = input('Введите слово: ').split()
 letter = 0
-for i in word:
-    count = word_list.count(i)
+for i in word[0]:
+    count = word[0].count(i)
     if count == 1:
         letter += 1
 print('Количество уникальных букв: ', letter)
