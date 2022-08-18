@@ -13,13 +13,9 @@
 
 word = input('Введите слово: ')
 word_list = list(word)
-long_word = len(word_list)
-count = 0
-for i in word_list:
-    for x in word_list:
-        if i == x:
-            count += 1
-if count == int(long_word):
-    print('Количество уникальных букв: ', count )
-else:
-    print('Количество уникальных букв: ', count - int(long_word))
+letter = 0
+for i in word:
+    count = word_list.count(i)
+    if count == 1:
+        letter += 1
+print('Количество уникальных букв: ', letter)
