@@ -17,12 +17,11 @@ films = [‘Крепкий орешек’, ‘Назад в будущее’, 
 films = ['Крепкий орешек', 'Назад в будущее', 'Таксист', 'Леон', 'Богемская рапсодия', 'Город грехов', 'Мементо', 'Отступники', 'Деревня']
 favorit_film = []
 choice_film = int(input('Сколько фильмов хотите добавить? '))
-count = 0
 total_film = len(films)
-while count != choice_film:
-    count += 1
+for _ in range(choice_film):
     film = str(input('Введите название фильма: '))
-    if films.count(film) > 0:
+    film = film[:1].upper() + film[1:].lower()
+    if film in films:
         favorit_film.append(film)
     else:
         print('Ошибка: фильма', film, 'у нас нет :(')
