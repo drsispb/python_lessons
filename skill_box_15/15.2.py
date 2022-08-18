@@ -10,13 +10,13 @@
 name_list = ['Артемий', 'Борис', 'Влад', 'Гоша', 'Дима', 'Евгений', 'Женя', 'Захар']
 new_list_first_day = []
 new_list_second_day = []
-count = 0
-for i in name_list:
-    if count % 2 == 0:
-        new_list_first_day.append(i)
+
+for i in range(len(name_list)):
+    if i % 2 == 0:
+        new_list_first_day.append(name_list[i])
     else:
-        new_list_second_day.append(i)
-    count += 1
+        new_list_second_day.append(name_list[i])
+
 
 print('Первый день:', new_list_first_day)
 print('Второй день:', new_list_second_day)
