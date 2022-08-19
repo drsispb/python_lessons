@@ -19,26 +19,27 @@
 Введите вес нового контейнера: 162
 Номер, который получит новый контейнер: 3'''
 
+def check_200(x):
+    while 0 < x < 200:
+        print('Вы ввели неверный вес, вес больше 0 но меньше 200')
+        x = int(input('Введите вес контейнера: '))
+    return x
+
+
 N = int(input('Количество контейнеров: '))
 contener_list = []
 count = 0
-while count != N:
+
+for i in range(N):
+  weight_container = int(input('Введите вес контейнера: '))
+  weight_container = check_200(weight_container)
+  contener_list.append(weight_container)
+
+new_container = int(input('Введите вес нового контейнера: '))
+new_container = check_200(new_container)
+
+for i in contener_list:
+  if new_container <= i:
     count += 1
-    mass_cont = int(input('Введите вес контейнера: '))
-    if mass_cont < 200:
-        contener_list.append(mass_cont)
-    else:
-        print('слишком большая масса, повторите')
-        count -= 1
-while True:
-    new_contener = int(input('Введите вес нового контейнера:'))
-    number_newcon = 0
-    if new_contener < 200:
-        for i in contener_list:
-            number_newcon += 1
-            if new_contener > int(i):
-                print('Номер, который получит новый контейнер: ', number_newcon)
-                break
-        break
-    else:
-        print('слишком большая масса, повторите')
+
+print('Номер, куда встанет новый контейнер:', count)
