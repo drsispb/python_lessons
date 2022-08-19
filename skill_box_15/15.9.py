@@ -14,9 +14,8 @@
 
 
 word = str(input('Введите слово: '))
-un_word = ''
-for a in word[::-1]:
-    un_word += a
+un_word = word[::-1]
+
 if word == un_word:
   print('Слово является палиндромом')
 else:
