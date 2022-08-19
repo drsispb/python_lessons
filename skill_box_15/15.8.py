@@ -14,13 +14,13 @@
 Сдвинутый список: [-3, 0, 10, 1, 4]
 '''
 
-spisok = [1, 4, -3, 0, 10]
+spisok = [1, 2, 3, 4, 5]
 step_spisok = []
-half_s = []
 long = len(spisok)
 step = int(input('Введите сдвиг: '))
-for i in spisok[:long - step]:
-    step_spisok.append(i)
-for i in spisok[-step:]:
-    half_s.append(i)
-print('Сдвинутый список: ', half_s + step_spisok)
+
+for _ in range(long):
+    a = spisok[_] - step - 1
+    step_spisok.append(spisok[a])
+
+print('Сдвинутый список:', step_spisok)
