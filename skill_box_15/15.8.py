@@ -19,8 +19,8 @@ step_spisok = []
 long = len(spisok)
 step = int(input('Введите сдвиг: '))
 
-for _ in range(long):
-    a = spisok[_] - step - 1
+for i in range(long):
+    a = spisok[i] - step - 1
     step_spisok.append(spisok[a])
 
 print('Сдвинутый список:', step_spisok)
