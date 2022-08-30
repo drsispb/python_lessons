@@ -29,13 +29,12 @@
 
 count_num = int(input('Кол-во чисел: '))
 subsequence = []
+
 for _ in range(count_num):
     subsequence.append(int(input('Число: ')))
-print('Последовательность: ', subsequence)
+
 for i in range(len(subsequence)):
-    print(subsequence[i:])
-    print(subsequence[i:][::-1])
     if subsequence[i:] == subsequence[i:][::-1]:
         print('Нужно приписать чисел:', i)
-        print('Сами числа: ', subsequence[:i][::-1])
+        print('Сами числа: ', *subsequence[:i][::-1])
         break

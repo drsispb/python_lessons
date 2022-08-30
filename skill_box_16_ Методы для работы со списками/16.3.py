@@ -21,6 +21,7 @@ detal = input('Введите необходимую деталь: ')
 shop_count = len(shop)
 count = 0
 summ_detal = 0
+
 for i in range(shop_count):
     if shop[i][0] == detal:
         count += 1

@@ -47,6 +47,7 @@ N друзей постоянно берут в долг друг у друга 
 
 friends = int(input('Кол-во друзей: '))
 friends_list = []
+
 for i in range(1, friends + 1):
     friends_list.append(0)
 receipts = int(input('Долговых расписок: '))
@@ -60,5 +61,6 @@ for i in range(1, receipts + 1):
     friends_list[from_whom - 1] -= summ
     friends_list[to_whom - 1] += summ
 print("Баланс друзей: ")
+
 for index in range(len(friends_list)):
     print(index + 1, ": ", friends_list[index])

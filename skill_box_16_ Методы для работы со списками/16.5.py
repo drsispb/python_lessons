@@ -29,6 +29,19 @@ violator_songs = [
 Название 3-й песни: Clean
 Общее время звучания песен: 14,93 минуты'''
 
+
+def get_song(i,violator_songs):
+    time_min = 0
+    time_sec = 0
+    print('Название', i, '-й песни')
+    sing = input()
+    for s in violator_songs:
+        if s[0] == sing:
+            time_min += s[1]
+            time_sec += s[2]
+            total_time = time_min + time_sec / 100
+    return total_time
+
 violator_songs = [
     ['World in My Eyes', 4,86],
     ['Sweetest Perfection', 4,43],
@@ -40,20 +53,10 @@ violator_songs = [
     ['Blue Dress', 4,29],
     ['Clean', 5,83]
 ]
-
 count_sing = int(input('Сколько песен выбрать? '))
-time_min = 0
-time_sec = 0
-count = 0
-for i in range(1, count_sing + 1):
-    print('Название', i, '-й песни')
-    sing = input()
-    for s in violator_songs:
-        if s[0] == sing:
-            time_min += s[1]
-            time_sec += s[2]
-    if time_sec > 60:
-        time_min = time_min + time_sec // 100
-        time_sec = time_sec % 100
 
-print('Общее время звучания песен:', str(time_min)+ ',' + str(time_sec), 'минуты')
+for i in range(1, count_sing + 1):
+    total_time = get_song(i,violator_songs)
+    total_time += total_time
+
+print('Общее время звучания песен:', total_time, 'минуты')
