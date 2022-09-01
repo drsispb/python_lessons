@@ -17,6 +17,7 @@ alfabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 message = input('Введите сообщение: ').upper()
 step = int(input('Введите сдвиг: '))
 schifer = ''
+
 for i in message:
     place = alfabet.find(i)
     new_place = place + step
@@ -24,4 +25,5 @@ for i in message:
         schifer += alfabet[new_place]
     else:
         schifer += i
-print (schifer.lower())
+
+print('Зашифрованное сообщение: ', schifer.lower())
