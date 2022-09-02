@@ -19,17 +19,21 @@ N палочек выставили в один ряд, пронумеровав
 по номер 6.
 Результат: I.....I...
 '''
-import random
+
+left = 0
+right = 0
 
 stick = int(input('Количество палок: '))
 throw = int(input('Количество бросков: '))
 stick_squad = ['I' for x in range(stick)]
 
 for i in range(throw):
-    a = random.randint(1,stick)
-    b = random.randint(a, stick)
-    print('Бросок', i + 1 , 'Сбиты палки с номера', a, 'по номер', b)
-    for x in range(a, b + 1):
+    left = int(input('Введите в какую крайюнию левую палку попало: '))
+    right = left + 3
+    if right > stick:
+        right = stick
+    print('Бросок', i + 1 , 'Сбиты палки с номера', left, 'по номер', right)
+    for x in range(left, right + 1):
         stick_squad[x - 1] = '.'
 
 print(*stick_squad)

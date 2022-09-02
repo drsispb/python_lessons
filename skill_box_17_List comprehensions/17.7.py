@@ -5,19 +5,8 @@
 который требует заказчик. В этот раз заказчику нужно получить вот такой двумерный список:
 [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
 Напишите программу, которая генерирует такой список и выводит его на экран. Используйте только list comprehensions.'''
-def squares(a,b,c,):
-    squares = [x for x in range(a,b,c)]
-    return squares
 
-a = 1
-b = 10
-c = 4
-total_result = []
 
-for _ in range(4):
-    result = squares(a,b,c)
-    a += 1
-    b += 1
-    total_result.append(result)
-
+total_result = [list(range(x,(x + 4) * 2,4)) for x in range(1, 5)]
 print(total_result)
+

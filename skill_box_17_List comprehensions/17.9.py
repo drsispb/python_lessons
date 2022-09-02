@@ -7,7 +7,7 @@ nice_list = [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[10, 11, 12], [13, 14, 15], [16
 Ответ: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]'''
 
 nice_list = [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[10, 11, 12], [13, 14, 15], [16, 17, 18]]]
-good_list = [num for i in nice_list for i_j in i for num in i_j]
+good_list = [numbers for i in nice_list for i_index in i for numbers in i_index]
 
 print('Ответ: ', good_list)
 

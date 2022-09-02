@@ -20,4 +20,4 @@ word = input('Введите строку: ')
 revers = word[word.find('h') + 1:word.rfind('h')]
 word = revers[::-1]
 
-print(word)
+print('Развёрнутая последовательность между первым и последним h: ', word)

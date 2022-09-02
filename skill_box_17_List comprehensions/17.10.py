@@ -12,23 +12,22 @@
 Введите сдвиг: 3
 Зашифрованное сообщение: ахс тлхср.'''
 
-alfabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+alfabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 space = ' '
 
-message = input('Введите сообщение: ').upper()
+message = input('Введите сообщение: ').lower()
 step = int(input('Введите сдвиг: '))
-schifer = ''
+schifer = [alfabet[(alfabet.index(i) + step) % len(alfabet)] if i in alfabet else i for i in message]
+# for i in message:
+#     place = alfabet.find(i)
+#     new_place = place + step
+#     if i in alfabet and new_place < (len(alfabet) - 1):
+#         schifer += alfabet[new_place]
+#     elif i == space:
+#         schifer += space
+#     elif i in alfabet and new_place >= (len(alfabet) -1):
+#         schifer += alfabet[new_place - len(alfabet)]
+#     else:
+#         schifer += i
 
-for i in message:
-    place = alfabet.find(i)
-    new_place = place + step
-    if i in alfabet and new_place < (len(alfabet) - 1):
-        schifer += alfabet[new_place]
-    elif i == space:
-        schifer += space
-    elif i in alfabet and new_place >= (len(alfabet) -1):
-        schifer += alfabet[new_place - len(alfabet)]
-    else:
-        schifer += i
-
-print('Зашифрованное сообщение: ', schifer.lower())
+print('Зашифрованное сообщение: ', ''.join(schifer))

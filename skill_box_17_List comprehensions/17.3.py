@@ -19,8 +19,7 @@ import random
 
 first_squad = [round(random.uniform(5, 10),2) for _ in range(20)]
 second_squad = [round(random.uniform(5, 10),2) for _ in range(20)]
-min_len_of_squad = min(len(first_squad), len(second_squad))
-result_squad = [(first_squad[i] if first_squad[i] > second_squad[i] else second_squad[i]) for i in range(min_len_of_squad)]
+result_squad = [(first_squad[i] if first_squad[i] > second_squad[i] else second_squad[i]) for i in range(20)]
 
 print('Первая команда: ', first_squad)
 print('Вторая команда: ', second_squad)
