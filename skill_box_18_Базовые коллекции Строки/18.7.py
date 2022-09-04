@@ -20,22 +20,25 @@ a4 — это не целое число.
 Пример 4:
 Введите IP: 128.0.0.255
 IP-адрес корректен.'''
+x = True
+while x == True:
+    ip = input('Введите IP: ').split('.')
 
-ip = input('Введите IP: ').split('.')
-
-if len(ip) < 4:
-    print('Адрес - это четыре числа, разделенные точками')
-else:
-    count_num = 0
-    for x in ip:
-        if x.isdigit():
-            if int(x) <= 255:
-                count_num += 1
-                continue
+    if len(ip) < 4:
+        print('Адрес - это четыре числа, разделенные точками')
+    else:
+        count_num = 0
+        for x in ip:
+            if x.isdigit():
+                if int(x) <= 255:
+                    count_num += 1
+                    continue
+                else:
+                    print(x, 'превышает 255')
             else:
-                print(x, 'превышает 255')
-        else:
-            print(x, 'не целое число')
-        break
-    if count_num == 4:
-        print("IP-адрес корректен")
+                print(x, 'не целое число')
+            break
+        if count_num == 4:
+            print("IP-адрес корректен")
+            x = False
+
