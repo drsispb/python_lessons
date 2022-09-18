@@ -35,3 +35,9 @@ for _ in range(1, land + 2):
         print('По городу {} данных нет.'.format(sity))
 
 
+
+
+
+
+
+

@@ -50,3 +50,7 @@ for i in range(1, check_song + 1):
     else:
         print('такой песни нет', song)
 print('Общее время звучания песен: ', round(total_long, 2), 'минуты')
+
+
+
+

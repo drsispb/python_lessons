@@ -48,3 +48,8 @@ for i, j in frequency.items():
 
 for i in invert_list:
     print(i, ':', invert_list[i])
+
+
+
+
+

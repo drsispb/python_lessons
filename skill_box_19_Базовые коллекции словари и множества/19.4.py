@@ -54,3 +54,9 @@ for i in goods.values():
     total_price = 0
     price = 0
     count += 1
+
+
+
+
+
+

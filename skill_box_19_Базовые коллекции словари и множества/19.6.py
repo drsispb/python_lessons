@@ -39,3 +39,8 @@ while True:
         print('Синоним: ', check_value)
     elif check_value == None:
         print('Синоним: ', check_key)
+
+
+
+
+

@@ -41,3 +41,9 @@ while question != 'Помогите!':
         question = 'Помогите!'
         break
 print('Артём мог загадать следующие числа:', num_dict)
+
+
+
+
+
+
