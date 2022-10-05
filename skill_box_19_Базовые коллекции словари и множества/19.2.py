@@ -22,17 +22,16 @@ land_dict = {}
 land = int(input('Количество стран: '))
 
 for i_country in range(1, land + 1):
-    country = input('{} страна '.format(i_country)).split()
-    for i in country[1:]:
-        land_dict[i] = country[0]
+    countries = input('{} страна '.format(i_country)).split()
+    for i in countries[1:]:
+        land_dict[i] = countries[0]
 
 for _ in range(1, land + 2):
-    sity = input('Город: ')
-    country_check = land_dict.get(sity)
-    if country_check:
-        print('Город {0} расположен в стране {1}'.format(sity, country_check))
+    city = input('Город: ')
+    if land_dict.get(city):
+        print(f'Город {city} расположен в стране {land_dict.get(city)}')
     else:
-        print('По городу {} данных нет.'.format(sity))
+        print(f'По городу {city} данных нет.')
 
 
 
