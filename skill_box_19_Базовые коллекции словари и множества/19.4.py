@@ -37,20 +37,15 @@ store = {
         {'quantity': 43, 'price': 97},
     ],
 }
-name = list(goods.keys())
 
-total_quantity = 0
-total_price = 0
-price = 0
-count = 0
+total_quantity, total_price, price = 0, 0, 0
 
-for i in goods.values():
-    for j in store[i]:
-        total_quantity += j['quantity']
-        price = j['price']
-    total_price = price * total_quantity
-    print(name[count], total_quantity, ' штук, стоимость ', total_price, 'руб.')
-    total_quantity = 0
-    total_price = 0
-    price = 0
-    count += 1
+
+for i_key, i_value in goods.items():
+    for j_key in store[i_value]:
+        total_quantity += j_key['quantity']
+        quantity = j_key['quantity']
+        price = j_key['price']
+        total_price += price * quantity
+    print(i_key, total_quantity, ' штук, стоимость ', total_price, 'руб.')
+    total_quantity, total_price, price = 0, 0, 0

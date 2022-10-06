@@ -29,13 +29,12 @@
 3 : ['о']'''
 
 text = input('Введите текст: ')
-invert_list = {}
+invert_dict = {}
 frequency = {}
+
 for symbol in text:
-    if symbol in frequency:
-        frequency[symbol] += 1
-    else:
-        frequency[symbol] = 1
+    count = text.count(symbol)
+    frequency[symbol] = count
 
 print('\nОригинальный словарь частот:')
 for letter, freq in frequency.items():
@@ -44,7 +43,7 @@ for letter, freq in frequency.items():
 print('Инвертированный словарь частот:\n')
 
 for i, j in frequency.items():
-    invert_list.setdefault(j, []).append(i)
+    invert_dict.setdefault(j, []).append(i)
 
-for i in invert_list:
-    print(i, ':', invert_list[i])
+for i in invert_dict:
+    print(i, ':', invert_dict[i])

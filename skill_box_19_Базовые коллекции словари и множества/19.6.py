@@ -16,26 +16,25 @@
 Введите слово: здравствуйте
 Синоним: Привет'''
 
-dictionary_of_words = ['Первая пара', 'Вторая пара', 'Третья пара', 'Четвертая пара', 'Пятая пара','Шестая пара']
-word_num = int(input('Введите количество пар слов: '))
-dict_word_1 = {}
-dict_word_2 = {}
-space_1 = 0
-space_2 = 0
 
-for i in range(word_num):
-    pair = input('{0} : '.format(dictionary_of_words[i]))
+word_num = int(input('Введите количество пар слов: '))
+syn_dict = {}
+
+for i in range(1, word_num + 1):
+    pair = input(f'{i} пара :  ').lower()
     pair_s = pair.split()
-    dict_word_1[pair_s[0]] = pair_s[2]
-    dict_word_2[pair_s[2]] = pair_s[0]
+    syn_dict[pair_s[0]] = pair_s[2]
 
 while True:
-    check_word = input('Введите слово: ')
-    check_key = dict_word_1.get(check_word)
-    check_value = dict_word_2.get(check_word)
-    if check_key == None and check_value == None:
-        print('Такого слова в словаре нет.')
-    elif check_key == None:
-        print('Синоним: ', check_value)
-    elif check_value == None:
-        print('Синоним: ', check_key)
+    flag = True
+    check_word = input('Введите слово: ').lower()
+    for check_key in syn_dict.items():
+        if check_word in check_key:
+            flag = False
+            print('Синоним: ', syn_dict.get(check_word) if syn_dict.get(check_word) else check_key[0])
+            break
+
+    if flag == True:
+        print('Такого слова нет в словаре')
+    else:
+        flag = True

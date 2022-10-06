@@ -19,25 +19,25 @@
 Ответ Артёма: Нет
 Нужное число есть среди вот этих чисел: Помогите!
 Артём мог загадать следующие числа: 1 3 5'''
+import random
 
-
-max_num = int(input('Введите максимальное число: '))
-
-num_dict = {num for num in range(1, max_num + 1)}
-question = ''
-count = 0
-while question != 'Помогите!':
-    question = input('Нужное число есть среди вот этих чисел: ')
-    count += 1
-    if question != 'Помогите!':
-        ask = input('Ответ Артёма: ')
-        if ask == 'да':
-            question = set([int(num) for num in question.split(" ")])
-            num_dict = num_dict & question
-        elif ask == 'нет':
-            question = set([int(num) for num in question.split(" ")])
-            num_dict = num_dict - question
-    else:
-        question = 'Помогите!'
+count = int(input('Введите максимальное число: '))
+secret = random.randint(0, count)
+numbers = set()
+while True:
+    string = input('Нужное число есть среди вот этих чисел: ')
+    if 'помогите' == string.lower():
+        nums = set([x for x in range(count + 1)])
+        print(f'Артём мог загадать следующие числа: {nums.difference(numbers)}')
         break
-print('Артём мог загадать следующие числа:', num_dict)
+
+    set_numbers = set([int(x) for x in string.split() if x.isdigit() and 0 <= int(x) <= count])
+
+    if secret not in set_numbers:
+        print(f'Ответ Артёма: Нет')
+        numbers = numbers.union(set_numbers)
+    elif len(set_numbers) == 1 and secret in set_numbers:
+        print(f'Отгадал, секретное число: {secret}')
+        break
+    elif secret in set_numbers:
+        print(f'Ответ Артёма: Да')
