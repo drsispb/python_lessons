@@ -44,9 +44,9 @@ violator_songs = {
 total_long = 0
 check_song = int(input('Сколько песен выбрать? '))
 for i in range(1, check_song + 1):
-    song = input('Название {} песни:'.format(i))
-    if song in violator_songs:
-        total_long +=violator_songs[song]
+    song = input(f'Название {i} песни: ')
+    if song in violator_songs.keys():
+        total_long += violator_songs.get(song, 0)
     else:
         print('такой песни нет', song)
 print('Общее время звучания песен: ', round(total_long, 2), 'минуты')
