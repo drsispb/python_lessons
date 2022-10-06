@@ -14,19 +14,15 @@ print(slicer((1, 2, 3, 4, 5, 6, 7, 8, 2, 2, 9, 10), 2))
 '''
 
 def slicer(x,y):
-    count = 0
-    total = []
-    for i in x:
-        if i == y and count == 0:
-            total.append(i)
-            count += 1
-        elif count == 1 and i != y:
-            total.append(i)
-        elif i == y and count == 1:
-            total.append(i)
-            count += 1
-            break
-    return tuple(total)
+    if y in x:
+        element_start = list(x).index(y)
+        if y in x[element_start +1 ::]:
+            element_end = list(x).index(y, element_start + 1)
+            return tuple(x[element_start : element_end + 1])
+        else:
+            return tuple(x[element_start ::])
+    else:
+        return tuple()
 
 element = int(input('Введите элемент: '))
 print(slicer((1, 2, 3, 4, 5, 6, 7, 8, 2, 2, 9, 10), element))

@@ -10,6 +10,10 @@ print(tpl_sort(6, 3, -1, 8, 4, 10, -5))
 Ответ в консоли: (-5, -1, 3, 4, 6, 8, 10)'''
 
 def tpl_sort(*kortezh):
+    check = True
+    for i in list(kortezh):
+        if type(i) != int:
+            return kortezh
     y_1 = tuple(sorted(list(kortezh)))
     return y_1
 

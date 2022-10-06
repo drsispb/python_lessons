@@ -57,20 +57,23 @@
 …….
 
 '''
+phone_book = {('Иван', 'Сидоров'): 888}
 
 while True:
-    phone_book = {}
     print('Введите номер действия: ', '\n1. Добавить контакт', '\n2. Найти человека')
     question = int(input())
     if question == 1:
         name = tuple(input('Введите имя и фамилию нового контакта (через пробел): ').split())
         phone = int(input('Введите номер телефона: '))
-        if name in phone_book:
+        if name in phone_book.keys():
             print('Такой человек уже есть в контактах')
         else:
             phone_book[name] = phone
         print('Текущий словарь контактов:', phone_book)
     elif question == 2:
-        pass
+        surname = ((input('Введите фамилию для поиска: ').lower()).title())
+        for fio, tel in phone_book.items():
+            if surname.lower() in fio:
+                print(*fio, tel)
     else:
         print('Ошибка выбора действия, повторите ввод')
