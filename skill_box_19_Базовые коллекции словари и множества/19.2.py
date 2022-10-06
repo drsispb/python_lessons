@@ -32,11 +32,3 @@ for _ in range(1, land + 2):
         print(f'Город {city} расположен в стране {land_dict.get(city)}')
     else:
         print(f'По городу {city} данных нет.')
-
-
-
-
-
-
-
-

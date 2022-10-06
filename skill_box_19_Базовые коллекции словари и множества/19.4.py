@@ -49,10 +49,3 @@ for i_key, i_value in goods.items():
         total_price += price * quantity
     print(i_key, total_quantity, ' штук, стоимость ', total_price, 'руб.')
     total_quantity, total_price, price = 0, 0, 0
-
-
-
-
-
-
-

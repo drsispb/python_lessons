@@ -42,7 +42,3 @@ for i in total_order.keys():
     print(i)
     for j in total_order[i].items():
         print('       ', *j)
-
-
-
-

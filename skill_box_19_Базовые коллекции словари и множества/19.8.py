@@ -41,4 +41,3 @@ while True:
         break
     elif secret in set_numbers:
         print(f'Ответ Артёма: Да')
-

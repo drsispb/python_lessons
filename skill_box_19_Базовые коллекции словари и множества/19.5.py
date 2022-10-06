@@ -47,8 +47,3 @@ for i, j in frequency.items():
 
 for i in invert_dict:
     print(i, ':', invert_dict[i])
-
-
-
-
-
