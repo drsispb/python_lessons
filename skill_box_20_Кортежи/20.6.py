@@ -13,15 +13,17 @@ from random import randint
 #1
 original = [randint(0, 40) for i in range(10)]
 print('Оригинальный список: ', original)
+
 new_original = [*map(tuple, zip(original[::2], original[1::2]))]
-print(new_original)
+print('Новый список: ', new_original)
 
 #2
-original_2 = [randint(0, 40) for j in range(10)]
-print('Оригинальный список: ', original_2)
-k1 = (original_2[0],original_2[1])
-k2 = (original_2[2],original_2[3])
-k3 = (original_2[4],original_2[5])
-k4 = (original_2[6],original_2[7])
-k5 = (original_2[8],original_2[9])
-print('Новый список: ', ([k1, k2, k3, k4, k5]))
+res_lst = []
+origin_lst = [randint(0, 40) for j in range(10)]
+
+for index, item in enumerate(origin_lst):
+  if index % 2 != 0:
+    res_lst.append((origin_lst[index - 1], item))
+
+print('Оригинальный список: ', origin_lst)
+print('Новый список: ', res_lst)

@@ -26,9 +26,7 @@ list_book = {
 surname = input('Введите фамилию: ')
 
 for i_surname in list_book:
-    if i_surname[0].lower() == surname.lower() \
-            or i_surname[0].lower() == (surname + 'а').lower() \
-            or i_surname[0].lower() == surname[:-1].lower():
+    if i_surname[0] == surname.capitalize():
         print(*i_surname, list_book[i_surname])
 
 

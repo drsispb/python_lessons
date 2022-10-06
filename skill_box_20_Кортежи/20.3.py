@@ -22,7 +22,7 @@ def slicer(x,y):
         else:
             return tuple(x[element_start ::])
     else:
-        return tuple()
+        return ()
 
 element = int(input('Введите элемент: '))
 print(slicer((1, 2, 3, 4, 5, 6, 7, 8, 2, 2, 9, 10), element))

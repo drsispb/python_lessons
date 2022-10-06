@@ -22,11 +22,19 @@
 чтобы программа работала с любыми итерируемыми типами данных.'''
 
 def analog_zip(x,y):
-    return ((x[i], y[i]) for i in range(len(x)))
+    if isinstance(x, dict):
+        return ((x.items(), y[i]) for i in range(len(x)))
+    elif isinstance(y, dict):
+        return ((x[i], y.items()) for i in range(len(x)))
+    elif isinstance(y, dict) and isinstance(x, dict):
+        return ((x.items(), y.items()) for i in range(len(x)))
+    else:
+        return ((x[i], y[i]) for i in range(len(x)))
 
-string = 'abcd'
+string = {10: 20, 30: 40, 50: 60, 70:80}
 tpl = (10, 20, 30, 40)
 zip_view = analog_zip(string, tpl)
 print(zip_view)
-for a,b in zip_view:
-    print((a,b))
+
+for a, b in zip_view:
+    print((a, b))

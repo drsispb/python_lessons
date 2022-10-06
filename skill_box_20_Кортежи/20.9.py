@@ -54,27 +54,35 @@
 1-е место. qwerty (197128)
 2-е место. Alex (95715)
 3-е место. Jack (95715)'''
+def entry(num_entry):
+    result_dict = {}
+    for i_num in range(1, num_entry + 1):
+        result = input('Введите через пробел результаты участника '
+                       '(целое неотрицательное число) и игровое имя (имя не может содержать пробелов): ').split()
+        result_dict[i_num] = result
+    return result_dict
+
+def add_win_dict(result_dict):
+    list_result = []
+    list_name = []
+    for value in result_dict.values():
+        list_result.append(int(value[0]))
+        list_name.append(value[1])
+
+    winner_dict = {}
+    for _ in range(3):
+        x = max(list_result)
+        winner_dict[list_name[list_result.index(x)]] = x
+        y = list_name[list_result.index(x)]
+        list_name.remove(y)
+        list_result.remove(x)
+    return winner_dict
+
 
 num_entry = int(input('Сколько записей вносится в протокол? '))
-result_dict = {}
-for i_num in range(1, num_entry + 1):
-    result = input('Введите через пробел результаты участника '
-                   '(целое неотрицательное число) и игровое имя (имя не может содержать пробелов): ').split()
-    result_dict[i_num] = result
 
-list_result = []
-list_name = []
-for value in result_dict.values():
-    list_result.append(int(value[0]))
-    list_name.append(value[1])
-
-winner_dict = {}
-for _ in range(3):
-    x = max(list_result)
-    winner_dict[list_name[list_result.index(x)]] = x
-    y = list_name[list_result.index(x)]
-    list_name.remove(y)
-    list_result.remove(x)
+result_dict = entry(num_entry)
+winner_dict = add_win_dict(result_dict)
 
 for key, value in winner_dict.items():
     print((list(winner_dict.keys()).index(key) + 1), '-е место:', key, value)
