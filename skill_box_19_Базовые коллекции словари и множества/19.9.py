@@ -51,3 +51,4 @@ for i in set(total_family.keys()).union(set(total_family.values())):
 
 for key, value in sorted(heights.items()):
     print(key, value)
+
