@@ -21,15 +21,27 @@
 Дополнительно: создайте полный аналог функции zip — сделайте так,
 чтобы программа работала с любыми итерируемыми типами данных.'''
 
-def analog_zip(x,y):
-    if isinstance(x, dict):
-        return ((x.items(), y[i]) for i in range(len(x)))
-    elif isinstance(y, dict):
-        return ((x[i], y.items()) for i in range(len(x)))
-    elif isinstance(y, dict) and isinstance(x, dict):
-        return ((x.items(), y.items()) for i in range(len(x)))
+def analog_zip(object_1, object_2):
+  if not isinstance(object_1, dict) and not isinstance(object_2, dict):
+    if len(object_1) > len(object_2):
+      return ((object_1[i_element], object_2[i_element]) for i_element in range(len(object_2)))
     else:
-        return ((x[i], y[i]) for i in range(len(x)))
+      return ((object_1[i_element], object_2[i_element]) for i_element in range(len(object_1)))
+  elif not isinstance(object_1, dict) and isinstance(object_2, dict):
+    if len(object_1) > len(object_2):
+      return ((object_1[i_element], list(object_2.keys())[i_element]) for i_element in range(len(object_2)))
+    else:
+      return ((object_1[i_element], list(object_2.keys())[i_element]) for i_element in range(len(object_1)))
+  elif isinstance(object_1, dict) and not isinstance(object_2, dict):
+    if len(object_1) > len(object_2):
+      return (((list(object_1.keys())[i_element]), object_2[i_element]) for i_element in range(len(object_2)))
+    else:
+      return (((list(object_1.keys())[i_element]), object_2[i_element]) for i_element in range(len(object_1)))
+  elif isinstance(object_1, dict) and isinstance(object_2, dict):
+    if len(object_1) > len(object_2):
+      return (((list(object_1.keys())[i_element]), list(object_2.keys())[i_element]) for i_element in range(len(object_2)))
+    else:
+      return (((list(object_1.keys())[i_element]), list(object_2.keys())[i_element]) for i_element in range(len(object_1)))
 
 string = {10: 20, 30: 40, 50: 60, 70:80}
 tpl = (10, 20, 30, 40)
