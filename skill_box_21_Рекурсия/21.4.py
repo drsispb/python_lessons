@@ -14,32 +14,7 @@
 Введите максимальную глубину: 1
 Значение ключа: None'''
 
-def search_y(data, tag, depth):
-    result = None
-    if depth == 1:
-        if tag in data:
-            return data[tag]
-    elif depth > 1:
-        cnt = 1
-        for key, value in data.items():
-            if isinstance(value, dict) and cnt < depth:
-                result = search_n(value, tag)
-                cnt += 1
-                if result:
-                    return result
-    else:
-        return result
 
-def search_n(data, tag):
-    result = None
-    if tag in data:
-        return data[tag]
-    for key, value in data.items():
-        if isinstance(value, dict):
-            result = search_n(value, tag)
-            if result:
-                return result
-    return result
 
 site = {
     'html': {
@@ -54,13 +29,37 @@ site = {
     }
 }
 
+
+def search(data, tag, depth):
+    result = None
+    if depth == 1:
+        if tag in data:
+            return data[tag]
+    elif depth > 1:
+        cnt = 1
+        for key, value in data.items():
+            if isinstance(value, dict) and cnt < depth:
+                result = search(value, tag)
+                cnt += 1
+                if result:
+                    return result
+    elif depth == 0:
+        for key, value in data.items():
+            if isinstance(value, dict):
+                result = search(value, tag)
+                if result:
+                    return result
+    return result
+
+
+
 while True:
     ask_key = input('Введите искомый ключ: ')
     ask_depth = input('Хотите ввести максимальную глубину? Y/N: ').lower()
     if ask_depth == 'y':
         depth = int(input('Введите максимальную глубину: '))
-        print('Значение ключа: ', search_y(site, ask_key, depth))
+        print('Значение ключа: ', search(site, ask_key, depth))
     elif ask_depth == 'n':
-        print('Значение ключа: ', search_n(site, ask_key))
+        print('Значение ключа: ', search(site, ask_key, depth = 0))
     else:
         print('Некорректный выбор глубины, повторите')

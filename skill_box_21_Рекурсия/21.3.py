@@ -12,12 +12,10 @@
 
 
 def fibonacci(element):
-    prew = cur = 1
-    for n in range(element - 2):
-        tmp = prew + cur
-        prew = cur
-        cur = tmp
-    print('Число: ', cur)
+    if element in (1, 2):
+        return 1
+    return fibonacci(element - 1) + fibonacci(element - 2)
 
 
-fibonacci(int(input('Введите позицию числа в ряде Фибоначчи: ')))
+
+print('Число: ', fibonacci(int(input('Введите позицию числа в ряде Фибоначчи: '))))

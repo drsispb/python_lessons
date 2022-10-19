@@ -17,10 +17,11 @@
 9
 10'''
 
-def countdown (num, x = 1):
-    print(x)
-    if num != x:
-       return countdown(num, x + 1)
+def countdown (num):
+    if num <= 0:
+        return
+    countdown(num - 1)
+    print(num)
 
-num = int(input('Вввдите num: '))
+num = int(input('Введите num: '))
 countdown(num)
