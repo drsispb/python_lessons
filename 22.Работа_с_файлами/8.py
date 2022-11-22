@@ -32,13 +32,7 @@ for i_letter in text:
 
 
 sort_dict = sorted(dict_letter)
-for i_elem in sort_dict:
-    data = dict_letter[i_elem]
-    print(i_elem)
-    print(data)
-
 anal = [[i_elem, round((dict_letter[i_elem] / cnt),3)] for i_elem in sort_dict]
-print(anal)
 analysis = '\n'.join([i_elem[0] + ' ' + str(i_elem[1]) for i_elem in anal])
 open('analysis.txt', 'w').write(analysis)
 
