@@ -7,13 +7,12 @@
 
 Кстати, попробуйте открыть консоль Python и ввести команду “import this”.'''
 
-txt_file = open('zen.txt', 'r')
-txt_file_list = []
-for i_elem in txt_file:
-    txt_file_list.append(i_elem)
+import os
+file = os.path.abspath('zen.txt')
 
-for i_elem_list in txt_file_list[::-1]:
-    print(i_elem_list, end='')
+txt_file = open(file, 'r')
+for i_elem in reversed(txt_file.readlines()):
+    print(i_elem, end='')
 
 txt_file.close()
 

@@ -42,19 +42,22 @@ def save_files(string):
     r_path = path.replace(" ", "/")
     real_path = os.path.join(r_path, filename)
     path = 'C:/' + real_path
-    check_file = os.path.exists(path)
-    if check_file:
-        print('Файл с таким именем уже существует!')
-        ans_q = input('Вы действительно хотите перезаписать файл? ').lower()
-        if ans_q == 'да':
+    if os.path.isdir(path):
+        check_file = os.path.exists(path)
+        if check_file:
+            print('Файл с таким именем уже существует!')
+            ans_q = input('Вы действительно хотите перезаписать файл? ').lower()
+            if ans_q == 'да':
+                f = open(path, 'w')
+                f.write(string)
+                print('Файл успешно перезаписан!')
+            else:
+                print('Файл не перезаписан')
+        else:
             f = open(path, 'w')
             f.write(string)
-            print('Файл успешно перезаписан!')
-        else:
-            print('Файл не перезаписан')
+            print('Файл успешно сохранён!')
     else:
-        f = open(path, 'w')
-        f.write(string)
-        print('Файл успешно сохранён!')
+        print('Каталога не существует')
 
 save_files(input('Введите строку: '))

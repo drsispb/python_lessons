@@ -13,11 +13,11 @@
 Содержимое файла answer.txt
 8'''
 
-text_file = open('answer.txt', 'r')
+text_file = open('numbers.txt', 'r')
 
 count = 0
 for i_elem in text_file:
     count += int(i_elem)
-print(count)
+open('answer.txt', 'w').write(str(count))
 
 text_file.close()

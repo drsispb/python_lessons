@@ -15,28 +15,33 @@ E:\PycharmProjects\python_basic\Module14
 
 import os
 
+for _ in range(3):
+    path = os.getcwd()
+    os.chdir("..")
 
-def file_sizes(path):
-    files_stat = [0, 0, 0]
-
-    for i_elem in os.listdir(path):
-        if os.path.isfile(os.path.abspath(os.path.join(path, i_elem))):
-            file_path = os.path.abspath(os.path.join(path, i_elem))
-            file_size = os.path.getsize(file_path)
-            files_stat[0] += file_size
-            files_stat[1] += 1
-
-        else:
-            result = file_sizes(os.path.abspath(os.path.join(path, i_elem)))
-            files_stat[0] += result[0]
-            files_stat[1] += result[1]
-            files_stat[2] += 1
-    return files_stat
+path = os.path.join(path, 'python')
+print(path)
+file_list = []
+cat_list = []
 
 
-path = os.path.abspath(os.path.join('..', '..', 'python'))
+def get_size(way, sum_size=0, total_file=0):
+    dir_list = os.listdir(way)
+    for i_file in dir_list:
+        current_obj = os.path.abspath(os.path.join(way, i_file))
+        if os.path.isfile(current_obj):
+            file_list.append(current_obj)
+        elif os.path.isdir(current_obj):
+            cat_list.append(current_obj)
+            get_size(current_obj, sum_size)
+    return file_list, cat_list
 
-result = file_sizes(path)
-print('Размер каталога (в Кб):', result[0] / 1024)
-print('Количество файлов:', result[1])
-print('Количество подкаталогов:', result[2])
+
+res_list_file, res_list_dir = get_size(path)
+total_size = 0
+for i_elem in res_list_file:
+    total_size += os.path.getsize(i_elem)
+
+print('Размер каталога (в Кб): {}'.format(total_size / 1024))
+print('Количество подкаталогов: {}'.format(len(res_list_dir)))
+print('Количество файлов: {}'.format(len(res_list_file)))

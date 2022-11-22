@@ -25,15 +25,15 @@ text = open('work8.txt', 'r').read().lower()
 dict_letter = {}
 cnt = 0
 for i_letter in text:
-    if i_letter in alfabet:
+    if ord('a') <= ord(i_letter) <= ord('z'):
        x = dict_letter.get(i_letter, 0)
        dict_letter[i_letter] = x + 1
        cnt += 1
 
 
 sort_dict = sorted(dict_letter)
-anal = [[i_elem, round((dict_letter[i_elem] / cnt),3)] for i_elem in sort_dict]
-analysis = '\n'.join([i_elem[0] + ' ' + str(i_elem[1]) for i_elem in anal])
+analys = [[i_elem, round((dict_letter[i_elem] / cnt), 3)] for i_elem in sort_dict]
+analysis = '\n'.join([i_elem[0] + ' ' + str(i_elem[1]) for i_elem in analys])
 open('analysis.txt', 'w').write(analysis)
 
 

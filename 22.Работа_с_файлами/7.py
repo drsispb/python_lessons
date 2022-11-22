@@ -23,34 +23,16 @@ Vasiliev Maxim 78
 
 
 new_file = open('first_tour.txt', 'r')
-k = int(new_file.readline())
+limit = int(new_file.readline())
 
-new_list = []
+list_result = [i.split() for i in new_file]
+list_surname_result = [[i[0], i[1][0:1], i[2]] for i in list_result if int(i[2]) > limit]
+number_of_winners = str(len(list_surname_result))
 
-for line in new_file:
-    new_line = line.split()
+second_tour = open('second_tour.txt', 'w')
+second_tour.write(number_of_winners + '\n')
+cnt = 1
+for i_elem in list_surname_result:
+    second_tour.write(str(cnt) + ') ' + str(i_elem[1]) + '. ' + i_elem[0] + ' ' + i_elem[2] + '\n')
+    cnt += 1
 
-    if new_line != [] and int(new_line[-1]) > k:
-        new_list.append(new_line)
-new_file.close()
-
-new_list.sort(key=lambda a: int(a[-1]))
-new_list.reverse()
-
-count = str(len(new_list))
-
-out_lst = []
-n = 1
-for i in new_list:
-    name_sim = str(i[0][0]) + '.'
-    s_win = str(n) + ') ' + name_sim + ' ' + i[1] + ' ' + i[-1]
-    out_lst.append(s_win)
-    n += 1
-
-with open("second_tour.txt", "w", encoding='utf-8') as f_out:
-    f_out.write(count + '\n')
-    s = '\n'.join(out_lst)
-    f_out.write(s)
-
-for i in out_lst:
-    print(f'{i}')

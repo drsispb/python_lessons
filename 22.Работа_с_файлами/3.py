@@ -15,7 +15,10 @@
 Количество строк в файле:
 Наиболее редкая буква: '''
 
-text = open("zen.txt").read().lower()
+import os
+file = os.path.abspath('zen.txt')
+
+text = open(file).read().lower()
 letters = [i_elem for i_elem in text if i_elem in "abcdefghijklmnopqrstuvwxyz"]
 
 
