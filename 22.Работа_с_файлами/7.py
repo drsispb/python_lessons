@@ -32,7 +32,7 @@ number_of_winners = str(len(list_surname_result))
 second_tour = open('second_tour.txt', 'w')
 second_tour.write(number_of_winners + '\n')
 cnt = 1
-for i_elem in list_surname_result:
+for i_elem in sorted(list_surname_result):
     second_tour.write(str(cnt) + ') ' + str(i_elem[1]) + '. ' + i_elem[0] + ' ' + i_elem[2] + '\n')
     cnt += 1
 
