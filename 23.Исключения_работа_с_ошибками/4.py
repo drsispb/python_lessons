@@ -37,74 +37,34 @@ registrations_bad.log_index — для ошибочных, записывать 
 
 '''
 
-def check_index(check):
-    x = 'Поле «Возраст» НЕ является числом от 10 до 99'
-    try:
-        if len(check.split()) != 3:
-            raise IndexError
-    except IndexError:
-        return check, '........', x
+def validation_func(string):
+  lst_item = string.split()
+  if len(lst_item) != 3:
+    raise IndexError('НЕ присутствуют все три поля: IndexError')
+  if not lst_item[0].isalpha:
+    raise NameError('Поле имени содержит НЕ только буквы: NameError.')
+  if '@' not in lst_item[1] or '.' not in lst_item[1]:
+    raise SyntaxError('Поле «Имейл» НЕ содержит @ и .(точку): SyntaxError.')
+  if int(lst_item[2]) < 10 or int(lst_item[2]) > 99:
+    raise ValueError('Поле «Возраст» НЕ является числом от 10 до 99: ValueError.')
+  return string
 
-def check_name(check):
-    y = 'Поле имени содержит НЕ только буквы: NameError.'
-    try:
-        if not check.split()[0].isalpha():
-            raise NameError
-    except NameError:
-        return check, '........', y
 
-def check_syntax(check):
-    z = 'Поле «Имейл» НЕ содержит @ и .(точку): SyntaxError.'
-    try:
-        if '@' not in check.split()[1] and '.' not in check.split()[1]:
-            raise SyntaxError
-    except SyntaxError:
-        return check, '........', z
-
-def check_value(check):
-    c = 'Поле «Возраст» НЕ является числом от 10 до 99: ValueError.'
-    try:
-        if int(check.split()[2]) not in range(10,99):
-            raise ValueError
-    except ValueError:
-        return check, '........', c
-
-log_bad = open('registrations_bad.log', 'w', encoding='utf8')
 list_reg = []
 
-with open('registrations.txt', 'r', encoding='utf8') as file:
-    for i_user in file.readlines():
-        list_reg.append(i_user.rstrip('\n'))
+with open('registrations.txt', 'r', encoding='utf8') as file,\
+        open('registrations_bad.log', 'w', encoding='utf8') as log_bad,\
+        open('registrations_good.log', 'w', encoding='utf8') as log_good:
 
-    for check in list_reg:
-        log_index = check_index(check)
-        if log_index != None:
-            log_bad.write(' '.join(log_index))
-            list_reg.remove(check)
-    log_bad.write('\n....................................\n')
-
-    for check in list_reg:
-        log_name = check_name(check)
-        if log_name != None:
-            log_bad.write(' '.join(log_name))
-            list_reg.remove(check)
-    log_bad.write('\n....................................\n')
-
-    for check in list_reg:
-        log_syntax = check_syntax(check)
-        if log_syntax != None:
-            log_bad.write(' '.join(log_syntax))
-            list_reg.remove(check)
-    log_bad.write('\n....................................\n')
-
-    for check in list_reg:
-        log_value = check_value(check)
-        if log_value != None:
-            log_bad.write(' '.join(log_value))
-            list_reg.remove(check)
-    log_bad.write('\n....................................\n')
-
-with open('registrations_good.log', 'w', encoding='utf8') as log_good:
-    for i in list_reg:
-        log_good.write(str(i))
-        log_good.write('\n')
+        for i_user in file.readlines():
+            try:
+                validation_func(i_user)
+                log_good.write(i_user)
+            except IndexError:
+                log_bad.write(i_user.rstrip('\n') + '.......НЕ присутствуют все три поля: IndexError.\n')
+            except NameError:
+                log_bad.write(i_user.rstrip('\n') + '.......Поле имени содержит НЕ только буквы: NameError.\n')
+            except SyntaxError:
+                log_bad.write(i_user.rstrip('\n') + '.......Поле «Имейл» НЕ содержит @ и .(точку): SyntaxError.\n')
+            except ValueError:
+                log_bad.write(i_user.rstrip('\n') + '.......Поле «Возраст» НЕ является числом от 10 до 99: ValueError.\n')

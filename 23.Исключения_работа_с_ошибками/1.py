@@ -20,17 +20,23 @@
 Общее количество символов: 49.
 '''
 
-log_w = open('errors.log', 'w', encoding='utf8')
-with open('people.txt', 'r', encoding='utf8') as file_people:
-    file_people = file_people.readlines()
-    total_count = sum([len(i.strip()) for i in file_people])
-    for x, i_name in enumerate(file_people, 1):
-        try:
-            if len(i_name.strip()) < 3:
-                raise BaseException(f'Ошибка: менее трёх символов в строке {x}\n')
-        except BaseException as log:
-            log_w.write(str(log))
-            print(log)
-
+try:
+    log_w = open('errors.log', 'w', encoding='utf8')
+except NameError:
+    print('Файла для записи ошибок errors.log не существует')
+try:
+    with open('people.txt', 'r', encoding='utf8') as file_people:
+        file_people = file_people.readlines()
+        total_count = sum([len(i.strip()) for i in file_people])
+        for x, i_name in enumerate(file_people, 1):
+            try:
+                if len(i_name.strip()) < 3:
+                    raise ValueError(f'Ошибка: менее трёх символов в строке {x}\n')
+            except ValueError as log:
+                log_w.write(str(log))
+                print(log)
+except NameError:
+    print('Файла people.txt для считывания участников не существует')
+finally:
     print('Общее количество символов: ', total_count)
     log_w.close()

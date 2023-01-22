@@ -14,16 +14,25 @@
 
 while True:
     name = input('Введите имя: ')
-    do = int(input('Что будем делать ? \nПосмотреть текущий текст чата. - 1, Отправить сообщение - 2\n'))
+    try:
+        do = int(input('Что будем делать ? \nПосмотреть текущий текст чата. - 1, Отправить сообщение - 2\n'))
+    except ValueError:
+        print('Файла ')
     try:
         if do == 1:
-            with open('chat.txt', 'r', encoding='utf8') as chat:
-                for i in chat.readlines():
-                    print(i)
+            try:
+                with open('chat.txt', 'r', encoding='utf8') as chat:
+                    for i in chat.readlines():
+                        print(i)
+            except NameError:
+                print('Файл чата отсутсвует')
         if do == 2:
-            with open('chat.txt', 'a', encoding='utf8') as chat:
-                text = input('Введите текст: ')
-                chat.write('Пользователь ' + name + ': ' + text + '\n')
+            try:
+                with open('chat.txt', 'a', encoding='utf8') as chat:
+                    text = input('Введите текст: ')
+                    chat.write('Пользователь ' + name + ': ' + text + '\n')
+            except NameError:
+                print('Файл чата отсутсвует')
         if do != 1 and do != 2:
             raise ValueError
     except ValueError:
