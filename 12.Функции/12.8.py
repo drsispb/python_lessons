@@ -15,9 +15,9 @@ input содержит корректное приглашение для вво
 #         i = second
 #     else:
 #         i = firth
-#     for num in range(1, i + 1):
-#         if firth % num == 0 and second % num == 0:
-#             x = num
+#     for num_end in range(1, i + 1):
+#         if firth % num_end == 0 and second % num_end == 0:
+#             x = num_end
 #     print('Наибольший общий делитель:', x)
 #
 #

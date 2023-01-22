@@ -36,7 +36,7 @@ input содержит корректное приглашение для вво
 Пример:
 Введите кол-во чисел: 3
 Введите число: 1.3
-x = 2   log(x) = 0.6931471805599453
+x = 2   log_index(x) = 0.6931471805599453
 Введите число: -2.1
 x = -3   exp(x) = 0.049787068367863944
 Введите число: -5.9
@@ -49,8 +49,8 @@ x = -6   exp(x) = 0.0024787521766663585
 #     numb = float(input('Введите число: '))
 #     if numb >= 0:
 #         numb = math.ceil(numb)
-#         x = math.log(numb)
-#         print('x =', numb, 'log(x) =', x )
+#         x = math.log_index(numb)
+#         print('x =', numb, 'log_index(x) =', x )
 #     elif numb < 0:
 #         numb = math.floor(numb)
 #         x = math.exp(numb)

@@ -196,8 +196,8 @@ input содержит корректное приглашение для вво
 # while seqNum > 0:
 #     numbers = input('Введите число: ')
 #     seqNum -= 1
-#     for num in numbers:
-#         total_num += int(num)
+#     for num_end in numbers:
+#         total_num += int(num_end)
 #     if total_num > max_number:
 #         max_total = total_num
 #         max_number = int(numbers)
