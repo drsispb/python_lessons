@@ -13,9 +13,10 @@
 import random
 
 class Warrior:
-    name = 'Воин'
-    health = 100
-    kick = 20
+    def __init__(self, name, health=100, kick=20):
+        self.name = name
+        self.health = health
+        self.kick = kick
 
     def info_health(self):
         print('Здоровье {} {}'.format(self.name, self.health))
@@ -24,11 +25,8 @@ class Warrior:
         print('{} нанес удар '.format(self.name))
 
 
-warrior_1 = Warrior()
-warrior_2 = Warrior()
-warrior_1.name = 'Воин 1'
-warrior_2.name = 'Воин 2'
-
+warrior_1 = Warrior('Старк')
+warrior_2 = Warrior('Танос')
 
 for _ in range(100):
     if warrior_1.health > 0 and warrior_2.health > 0:

@@ -37,28 +37,27 @@ import random
 
 
 class Human:
-    house = True
-
+    house = None
     def __init__(self, name):
         self.name = name
         self.satiety = 50
 
     def eat(self):
         self.satiety += 10
-        House.fridge_with_food -= 10
+        self.house.fridge_with_food -= 10
 
 
     def work(self):
         self.satiety -= 10
-        House.nightstand_with_money += 10
+        self.house.nightstand_with_money += 10
 
     def game(self):
         self.satiety -= 10
 
 
     def go_in_shop(self):
-        House.fridge_with_food += 10
-        House.nightstand_with_money -= 10
+        self.house.fridge_with_food += 10
+        self.house.nightstand_with_money -= 10
 
     def info(self):
         print('Сытость {} в данный момент {}'.format(self.name, self.satiety))
@@ -70,6 +69,8 @@ class House:
 sergey = Human('Сергей')
 ivan = Human('Иван')
 house = House()
+Human.house = house
+
 
 for _ in range(365):
     if sergey.satiety > 0 or ivan.satiety > 0:
