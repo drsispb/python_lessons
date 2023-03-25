@@ -53,11 +53,14 @@ class Board:
             return True
         else:
             return False
+    def restart(self):
+        for i in range(1,10):
+            self.board[i] = None
 
     def check_status_game(self):
-        if self.board[1] == '+' and  self.board[2] == '+' and self.board[2] == '+':
+        if self.board[1] == '+' and  self.board[2] == '+' and self.board[3] == '+':
             return True
-        elif self.board[2]== '0' and self.board[1] == '0' and self.board[3] == '0':
+        elif self.board[2] == '0' and self.board[1] == '0' and self.board[3] == '0':
             return True
         elif self.board[4] == '+' and self.board[5] == '+' and self.board[6] == '+':
             return True
@@ -127,8 +130,6 @@ class Game:
         self.player_2 = player_2
         self.board = board
 
-    '''Метод запуска одного хода игры. Получает одного из игроков, запрашивает у игрока номер клетки, изменяет поле,
-    проверяет, выиграл ли игрок. Если игрок победил, возвращает True, иначе False.'''
 
     def start_one_step(self, player):
         x = player.do_move()
@@ -141,8 +142,6 @@ class Game:
         else:
             print('start_one_step not work')
 
-    '''Метод запуска одной игры. Очищает поле, запускает цикл с игрой, который завершается победой одного из игроков
-    или ничьей. Если игра завершена, метод возвращает True, иначе False.'''
 
     def start_one_game(self):
 
@@ -155,12 +154,8 @@ class Game:
                 if self.start_one_step(player_2):
                     player_2.win += 1
                     break
-
+        self.board.restart()
         return True
-
-
-    '''Основной метод запуска игр. В цикле запускает игры, запрашивая после каждой игры, хотят ли игроки продолжать
-    играть. После каждой игры выводится текущий счёт игроков.'''
 
     def start_game(self):
         ask = 'да'
@@ -195,19 +190,8 @@ while True:
     board = Board({i: cell.busy for i in range(1, 10)})
 
     crBoard = Game(player_1, player_2, board)
-    if crBoard.start_game():
+    if crBoard.start_game() == False:
         break
-            # if crBoard.start_one_game() != True:
-            #     for i in range(9):
-            #         if i % 2 == 0:
-            #             crBoard.start_one_step(player_1.sym)
-            #             if self.start_one_step == True:
-            #                 break
-            #         elif i % 2 == 1:
-            #             crBoard.start_one_step(player_2.sym)
-            #             if self.start_one_step == True:
-            #                 break
-
 
 
 

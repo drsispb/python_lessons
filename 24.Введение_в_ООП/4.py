@@ -14,31 +14,21 @@
 Огонь + Земля = Лава.
 Напишите программу, которая реализует все эти элементы. Каждый элемент необходимо организовать как отдельный класс.
 Если результат не определён, то возвращается None.
-
 Примечание: сложение объектов можно реализовывать через магический метод __add__, вот пример использования:
-
 class ExampleOne:
-
     def __add__(self, other):
-
         return ExampleTwo()
-
 class ExampleTwo:
-
     answer = 'сложили два класса и вывели'
-
 first_example = ExampleOne()
-
 second_example = ExampleTwo()
-
 result = first_example + second_example
-
 print(result.answer)
-
 Дополнительно: придумайте свой элемент (или элементы) и реализуйте его взаимодействие с остальными.'''
 
-class Water():
-    name = 'Вода'
+class Water:
+    def __str__(self):
+        return 'Вода'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -48,8 +38,9 @@ class Water():
         elif isinstance(other, Earth):
             return Dirt()
 
-class Air():
-    name = 'Воздух'
+class Air:
+    def __str__(self):
+        return 'Воздух'
 
     def __add__(self, other):
         if isinstance(other, Water):
@@ -59,8 +50,9 @@ class Air():
         elif isinstance(other, Earth):
             return Dust()
 
-class Fire():
-    name = 'Огонь'
+class Fire:
+    def __str__(self):
+        return 'Огонь'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -70,8 +62,9 @@ class Fire():
         elif isinstance(other, Earth):
             return Lava()
 
-class Earth():
-    name = 'Земля'
+class Earth:
+    def __str__(self):
+        return 'Земля'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -82,25 +75,31 @@ class Earth():
             return Lava()
 
 class Storm:
-    name = 'Шторм'
+    def __str__(self):
+        return 'Шторм'
+
 
 class Steam:
-    name = 'Пар'
+    def __str__(self):
+        return 'Пар'
 
 class Dirt:
-    name = 'Грязь'
-
+    def __str__(self):
+        return 'Грязь'
 class Lightning:
-    name = 'Молния'
+    def __str__(self):
+        return 'Молния'
 
 class Dust:
-    name = 'Пыль'
+    def __str__(self):
+        return 'Пыль'
 
 class Lava:
-    name = 'Лава'
+    def __str__(self):
+        return 'Лава'
 
 one_element = Water()
 two_element = Air()
 result = one_element + two_element
 
-print('Смешиваем {} c {} и получаем {}'.format(one_element.name,two_element.name,result.name))
+print('Смешиваем {} c {} и получаем {}'.format(one_element,two_element,result))

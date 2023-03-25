@@ -37,9 +37,10 @@ import random
 
 
 class Human:
-    house = None
-    def __init__(self, name):
+
+    def __init__(self, name, house):
         self.name = name
+        self.house = house
         self.satiety = 50
 
     def eat(self):
@@ -66,10 +67,11 @@ class House:
     fridge_with_food = 50
     nightstand_with_money = 0
 
-sergey = Human('Сергей')
-ivan = Human('Иван')
+
 house = House()
-Human.house = house
+sergey = Human('Сергей', house)
+ivan = Human('Иван', house)
+
 
 
 for _ in range(365):
