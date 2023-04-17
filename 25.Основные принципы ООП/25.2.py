@@ -24,9 +24,7 @@ DepressionError.
 закрываем файл'''
 
 import random
-class Exception():
-    '''Родительский класс, по факту заведен для красоты'''
-    pass
+
 
 '''Прочие классы, для инициализации информации об исключении'''
 class KillError(Exception):
@@ -49,10 +47,15 @@ class DepressionError(Exception):
 
 def one_day():
     '''функция для получения кармы, либо инициализации исключения'''
-    if random.randint(1,10) == 2:
-        raise
-    else:
-        return random.randint(1,7)
+    try:
+        if random.randint(1,10) == 2:
+            raise
+        else:
+            return random.randint(1,7)
+    except:
+        error = random.choice([KillError(), CarCrashError(), DrunkError(), GluttonyError(), DepressionError()])
+        file.write(str(error) + '\n')
+        return 0
 
 with open('karma.log', 'w', encoding='utf8') as file:
 
@@ -62,9 +65,6 @@ with open('karma.log', 'w', encoding='utf8') as file:
 
     while carma <= constanta:
         cnt += 1
-        try:
-            carma += one_day()
-        except:
-            error = random.choice([KillError(), CarCrashError(), DrunkError(), GluttonyError(), DepressionError()])
-            file.write(str(error) + '\n')
+        carma += one_day()
+
     print('Уровень кармы достигнут, потребовалось ', cnt, 'дня(-ей)')

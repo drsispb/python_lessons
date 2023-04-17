@@ -35,8 +35,8 @@ print(manager)
 
 Дополнительно: реализуйте также удаление задач и подумайте, что делать с дубликатами.'''
 
-class Stek():
-    '''создаем класс стек, как требует задание. реализуем добление и удаление элементов'''
+class Stek:
+    '''создаем класс стек, как требует задание. реализуем добаление и удаление элементов'''
     def __init__(self):
         self.items = []
 
@@ -46,38 +46,22 @@ class Stek():
     def append(self, item):
         self.items.append(item)
     '''метод для удаления, '''
-    def pop(self):
+    def pop(self, index):
         if len(self.items) == 0:
             return None
-        removed = self.items.pop()
+        removed = self.items.pop(index)
         return removed
 
-class TaskManager():
-    '''создаем класс, для приема задач'''
+class TaskManager:
     def __init__(self):
-        self.task = {}
+        self.stack = Stek()
 
     def __str__(self):
-        string = ""
-        for elem in sorted(self.task.keys()):
-            string += str(elem) + " " + str(self.task[elem]) + ";\n"
-        return string
+        tasks = sorted(self.stack.items)
+        return "\n".join(str(task[0]) + '  ' + str(task[1]) for task in tasks)
 
-    '''реализуем метод для принятия ранга и названия задачи'''
-    def new_task(self, task, rank):
-        if not rank in self.task.keys():
-            '''проверяем есть ли уже такой ранг, если нет добавляем его'''
-            self.task[rank] = Stek()
-            self.task[rank].append(task)
-        else:
-            '''если есть, создаем новый экземпляр класса стек и проводим проверку по рангу и вставляем в нужное нам место задачу '''
-            new_stack = Stek()
-            while len(str(self.task[rank])) != 0:
-                value = self.task[rank].pop()
-                if value != task:
-                    new_stack.append(value)
-            new_stack.append(task)
-            self.task[rank] = new_stack
+    def new_task(self, task, priority):
+        self.stack.append((priority, task))
 
 manager = TaskManager()
 manager.new_task("сделать уборку", 4)

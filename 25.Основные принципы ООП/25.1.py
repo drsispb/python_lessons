@@ -13,10 +13,11 @@
 '''
 
 class Property:
-    rate = 0
+
     ''' Базовый класс, для приема в себя стиомости '''
-    def __init__(self, worth):
+    def __init__(self, worth, rate=1):
         self.worth = worth
+        self.rate = rate
 
     def __str__(self):
         return '{} стоят {}:  \nРазмер налога {}: \n'
@@ -29,18 +30,19 @@ class Property:
 class Apartment(Property):
     '''Дочерний класс для апартаментов, принимает стоимость и налоговую базу'''
 
-    def __init__(self, worth, rate):
+    def __init__(self, worth):
         super().__init__(worth)
-        self.rate = rate
+        super().__init__(1000)
+
 
     def __str__(self):
         return super().__str__().format('Апартаменты', self.worth, self.tax_calculation())
 
 class Car(Property):
     '''Дочерний класс для автомобиля, принимает стоимость и налоговую базу'''
-    def __init__(self, worth, rate):
+    def __init__(self, worth):
         super().__init__(worth)
-        self.rate = rate
+        super().__init__(200)
 
     def __str__(self):
         return super().__str__().format('Машина', self.worth, self.tax_calculation())
@@ -48,17 +50,19 @@ class Car(Property):
 
 class CountryHouse(Property):
     '''Дочерний класс для загородного дома, принимает стоимость и налоговую базу'''
-    def __init__(self, worth, rate):
+    def __init__(self, worth):
         super().__init__(worth)
-        self.rate = rate
+        super().__init__(500)
 
     def __str__(self):
         return super().__str__().format('Загородный дом', self.worth, self.tax_calculation())
 
-
-apt = Apartment(worth=int(input('Введите стоимость квартиры: ')), rate=1000)
-car = Car(worth=int(input('Введите стоимость автомобиля: ')), rate=200)
-cHouse = CountryHouse(worth=int(input('Введите стоимость загородного дома: ')), rate=500)
+aptWorth = int(input('Введите стоимость квартиры: '))
+apt = Apartment(worth=aptWorth)
+carWorth = int(input('Введите стоимость автомобиля: '))
+car = Car(worth=carWorth)
+cHWorth = int(input('Введите стоимость загородного дома: '))
+cHouse = CountryHouse(worth=cHWorth)
 print(apt)
 print(car)
 print(cHouse)
