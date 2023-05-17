@@ -4,23 +4,21 @@
 (1 ** 2, 2 ** 2, 3 ** 2 и так далее). Реализацию напишите тремя способами: класс-итератор,
 функция-генератор и генераторное выражение.'''
 
-
 numN = int(input('Введите число N: '))
 
 '''класс-итератор'''
 class Iterator:
     def __init__(self, limit):
-        self.limit = limit + 1
-        self.__start = 1
-        self.result = 0
+        self.limit = limit
+        self.__start = 0
+
     def __iter__(self):
         return self
 
     def __next__(self):
         if self.__start < self.limit:
             self.__start += 1
-            self.result += 1
-            return self.result ** 2
+            return self.__start ** 2
         else:
             raise StopIteration
 
@@ -35,8 +33,8 @@ def iterator(num):
     for i_num in range(1, num + 1):
         yield i_num ** 2
 
-it_func = iterator(numN)
-for i in it_func:
+
+for i in iterator(numN):
     print(i, end=' ')
 
 print('\n')

@@ -7,18 +7,19 @@
 import os
 
 def get_str_file_py(def_path: str):
-    for dirs, folder, files in os.walk(def_path):
-        for file in files:
-            if str(file).endswith('.py'):
-                with open(os.path.join(dirs, file), 'r', encoding='utf-8') as open_file:
-                    yield open_file
+    for file in os.listdir(def_path):
+        if str(file).endswith('.py'):
+            yield file
 
 
 defaut_path = 'C:/Users/Питер Паркер/PycharmProjects/python_lessons/12.Функции'
 
-for i_cnt in get_str_file_py(defaut_path):
+for i_file in get_str_file_py(defaut_path):
     count = 0
-    for i_open_file in i_cnt:
-        if i_open_file != '\n':
-            count += 1
-    print('Количество строк в файле ', i_cnt.name, ' - ', count)
+    with open(os.path.join(defaut_path, i_file), 'r', encoding='utf-8') as open_file:
+        for i_str in open_file:
+            if i_str.strip() != '' and '#' not in i_str:
+                count += 1
+    print('Количество строк в файле ', i_file, ' - ', count)
+
+

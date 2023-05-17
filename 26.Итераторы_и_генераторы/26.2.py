@@ -7,23 +7,20 @@
 Подсказка: вместо написания кода с рекурсией используйте готовую рекурсивную функцию os.walk() — os — Miscellaneous
 operating system interfaces — Python 3.11.0 documentation.'''
 
-''' есть у меня подозрение, что задачу я не так понял, но вот как то так'''
-
 import os
 
-default = os.path.abspath('C:/')
-def gen_files_path(directori: str, catalog: str):
-    if os.path.isdir(directori + '\\' + catalog):
-        for i in os.walk(directori + '\\' + catalog):
-            print(i)
-    else:
-        print('Такой каталог не найден')
+default = os.path.join('\рабочая папка')
+def gen_files_path(directori: str, search_elem: str):
+    for dirpath, dirnames, filenames in os.walk(directori):
+        if search_elem in dirnames or search_elem in filenames:
+            yield dirpath
 
+cnt = 0
+search_elem = input('Введите нужный каталог и файл: ')
 
-
-
-dir_path = input('Введите нужную директорию: (если требуется проход по корневому диску, просто нажмите "enter") ')
-cat_path = input('Введите нужный каталог: ')
-
-gen_files_path(default + dir_path, cat_path)
+for i in gen_files_path(default, search_elem):
+    cnt += 1
+    print(i)
+if cnt == 0:
+    print('Файл или папка не найдены')
 
