@@ -13,14 +13,15 @@ def counter(func: Callable) -> Callable:
     декорируемой функции.
     """
 
-    func.__cnt__ = 0
+
 
     def wrapper(*args, **kwargs):
-        func.__cnt__ += 1
+        wrapper.cnt += 1
         res = func(*args, **kwargs)
-        print('{} была вызвана: {}x'.format(func.__name__, func.__cnt__))
+        print('{func} была вызвана: {cnt}x'.format(func=func.__name__, cnt=wrapper.cnt))
         return res
 
+    wrapper.cnt = 0
     return wrapper
 
 @counter

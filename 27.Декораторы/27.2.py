@@ -15,7 +15,7 @@ def timer(func: Callable) -> Callable:
         time.sleep(2)
         result = func
         return result
-    return wrapped_func()
+    return wrapped_func
 
 @timer
 def test():

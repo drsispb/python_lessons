@@ -30,7 +30,7 @@ def how_are_you(func: Callable) -> Callable:
         else:
             print('А у меня хорошо! Ладно, держи свою функцию.')
             return result
-    return wrapped_func()
+    return wrapped_func
 @how_are_you
 def test():
     print('<Тут что-то происходит...>')

@@ -25,7 +25,7 @@ def logging(func):
         except:
             with open('function_errors.log', 'w', encoding='utf8') as log:
                 log.write(str(datetime.datetime.now()) + ' ' + 'BaseException' + func.__name__)
-    return wrapped_func()
+    return wrapped_func
 
 
 @logging
