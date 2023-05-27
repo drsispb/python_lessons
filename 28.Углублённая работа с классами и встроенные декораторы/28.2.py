@@ -41,8 +41,8 @@ class MyMath:
         return x
 
     @classmethod
-    def cube_volume(cls, edge_1: all_numbers, edge_2: all_numbers, edge_3: all_numbers) -> all_numbers:
-        x = edge_1 * edge_2 * edge_3
+    def cube_volume(cls, radius: all_numbers) -> all_numbers:
+        x = radius ** 3
         return x
 
     @classmethod
