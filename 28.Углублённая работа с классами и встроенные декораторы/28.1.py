@@ -5,6 +5,8 @@
 теперь при попытке открыть несуществующий файл менеджер должен автоматически
 создавать и открывать этот файл в режиме записи;
 на выходе из менеджера должны подавляться все исключения, связанные с файлами.'''
+import os.path
+from typing import Any, Union
 
 class File:
 
@@ -14,7 +16,10 @@ class File:
         self.file = None
 
     def __enter__(self):
-        self.file = open(self.filename, self.mode, encoding='utf8')
+        if not os.path.exists(self.filename):
+            self.file = open(self.filename, 'w')
+        else:
+            self.filename = open(self.filename, self.mode)
         return self.file
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
@@ -22,5 +27,5 @@ class File:
         return True
 
 
-with File("example.txt", "w") as file:
+with File("example_2.txt", "r") as file:
     file.write("Всем привет!")
