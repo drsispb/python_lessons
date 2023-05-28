@@ -6,11 +6,11 @@
 создавать и открывать этот файл в режиме записи;
 на выходе из менеджера должны подавляться все исключения, связанные с файлами.'''
 import os.path
-from typing import Any, Union
+from typing import Any, Union, TypeVar
 
 class File:
 
-    def __init__(self, filename: str, mode: str) -> None:
+    def __init__(self, filename: str, mode: str):
         self.filename = filename
         self.mode = mode
         self.file = None
@@ -21,7 +21,6 @@ class File:
         else:
             self.filename = open(self.filename, self.mode)
         return self.file
-
     def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
         self.file.close()
         return True

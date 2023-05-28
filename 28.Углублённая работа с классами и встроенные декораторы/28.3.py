@@ -24,17 +24,6 @@ False'''
 
 class Date:
 
-    def __init__(self, day: int = 0, month: int = 0, year: int = 0) -> None:
-        self.day = day
-        self.month = month
-        self.year = year
-
-    def __str__(self) -> str:
-        return 'День: {day} Месяц: {month} Год: {year}'.format(
-            day=self.day,
-            month=self.month,
-            year=self.year)
-
     @classmethod
     def is_date_valid(cls, date: str) -> bool:
         day, month, year = map(int, date.split('-'))
@@ -50,10 +39,17 @@ class Date:
             return False
 
     @classmethod
-    def from_string(cls, date: str) -> 'Date':
-        day, month, year = map(int, date.split('-'))
-        new_date = cls(day, month, year)
-        return new_date
+    def from_string(cls, date: str) -> str:
+        if cls.is_date_valid(date):
+            date_l = date.split('-')
+            return 'День: {day} Месяц: {month} Год: {year}'.format(
+            day=date_l[0],
+            month=date_l[1],
+            year=date_l[2])
+        else:
+            return 'Неверный формат даты'
+
+
 
 date = Date.from_string('10-12-2077')
 print(date)
