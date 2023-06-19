@@ -26,15 +26,17 @@ print(my_obj is my_another_obj)
 1986890616688
 True'''
 
+import functools
+
 
 def singleton(cls):
-    instance = {}
-
+    @functools.wraps(cls)
     def wrapped(*args, **kwargs):
-        if cls not in instance.keys():
-            instance[cls] = cls(*args, **kwargs)
-        return instance[cls]
+        if not wrapped.instance:
+            wrapped.instance = cls(*args, **kwargs)
+        return wrapped.instance
 
+    wrapped.instance = None
     return wrapped
 
 
