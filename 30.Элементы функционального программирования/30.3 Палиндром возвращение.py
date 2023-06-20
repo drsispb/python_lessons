@@ -24,3 +24,8 @@ def can_be_poly(elem: str) -> bool:
 print(can_be_poly('abcba'))
 print(can_be_poly('abbbc'))
 
+def can_be_poly_lambda(elem: str) -> bool:
+    return len(list(filter(lambda x: x % 2, Counter(elem).values()))) <= 2
+
+print(can_be_poly_lambda('abcba'))
+print(can_be_poly_lambda('abbbc'))
