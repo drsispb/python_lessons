@@ -18,12 +18,12 @@
 import re
 
 num_list = ['9999999999', '999999-999', '99999x9999']
-names_list = ['первый номер:', 'второй номер:', 'третий номер:', 'чертвертый номер:', 'пятый номер:']
+
 cnt = 0
 for num in num_list:
     check_num = re.findall(r'[8-9]\d{9}', num)
     if len(check_num) == 1:
-        print(names_list[cnt], 'всё в порядке')
+        print(num_list.index(num) + 1, '- номер всё в порядке')
     else:
-        print(names_list[cnt], 'всё в порядке')
+        print(num_list.index(num) + 1, '- номер не подходит')
     cnt += 1

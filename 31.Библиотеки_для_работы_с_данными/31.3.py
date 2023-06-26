@@ -24,23 +24,23 @@ import requests
 import json
 
 
-link = requests.get('https://swapi.dev/api/starships/10/')
-data = link.json()
+url = requests.get('https://swapi.dev/api/starships/10/')
+data = url.json()
 
 pilots = []
 
 for pilot in data['pilots']:
-    pilot_link = requests.get(pilot)
-    pilot_data = pilot_link.json()
-    homeworld_link = requests.get(pilot_data['homeworld'])
-    homeworld_data = homeworld_link.json()
+    pilot_req = requests.get(pilot)
+    pilot_data = pilot_req.json()
+    homeworld_req = requests.get(pilot_data['homeworld'])
+    homeworld_data = homeworld_req.json()
     pilot_info = {
         'name': pilot_data['name'],
         'height': pilot_data['height'],
         'mass': pilot_data['mass'],
         'homeworld': {
             'name': homeworld_data['name'],
-            'link': pilot_data['homeworld']
+            'url': pilot_data['homeworld']
         }
     }
     pilots.append(pilot_info)
